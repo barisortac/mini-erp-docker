@@ -1,0 +1,93 @@
+{% extends 'core/base.html' %}
+{% load i18n %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block extrascripts %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        var table = $('#datatable').DataTable({
+            dom: 'lBfrtip',
+            responsive: true,
+            language: {
+                searchPlaceholder: 'Search...',
+                sSearch: '',
+                lengthMenu: '_MENU_ items/page',
+            },
+            processing: true,
+            serverSide: true,
+            minLength: 2,
+            "order": [],
+            ajax: {
+                url: "{% url 'address-list-json' %}",
+                type: "POST"
+            },
+            columnDefs: [
+                { "targets": 0, "title": "{% trans 'Address Title' %}" },
+                { "targets": 1, "title": "{% trans 'Address' %}" },
+                { "targets": 2, "title": "{% trans 'City' %}" },
+                { "targets": 3, "title": "{% trans 'Township' %}" },
+                { "targets": 4, "title": "{% trans 'District' %}" },
+                { "targets": 5, "title": "{% trans 'Postal Code' %}" },
+                { "targets": 6, "title": "{% trans 'Phone' %}" },
+                { "targets": 7, "title": "{% trans 'Internal' %}" },
+                { "targets": 8, "title": "{% trans 'Fax' %}" },
+                { "targets": 9, "title": "{% trans 'Tax No' %}" },
+                { "targets": 10, "title": "{% trans 'Tax Office' %}" },
+            ],
+
+            columns: [
+                {
+                    data: 'address_title',
+                    render: function (data, type, row) {
+                        return "<a href='{% url 'address-form' 0 %}'>".replace("0", row["id"]) + data + "</a>";
+                    }
+                },
+                { data: 'address' },
+                { data: 'city' },
+                { data: 'township' },
+                { data: 'district' },
+                { data: 'postal_code' },
+                { data: 'phone' },
+                { data: 'internal' },
+                { data: 'fax' },
+                { data: 'tax_no' },
+                { data: 'tax_office' },
+            ],
+        });
+        $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity, width: '' });
+
+        $(".dataTables_filter input")
+        .unbind() // Unbind previous default bindings
+        .bind("keyup", function(e) { // Bind our desired behavior
+            // If the length is 3 or more characters, or the user pressed ENTER use this code:
+            // if(this.value.length >= 3 || e.keyCode === 13)
+            if(e.keyCode === 13) {
+                // Call the API search function
+                table.search(this.value).draw();
+            }
+            // Ensure we clear the search if they backspace far enough
+            if(this.value === "") {
+                table.search("").draw();
+            }
+            return;
+        });
+
+    });
+
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="nav az-nav flex-column flex-md-row justify-content-center">
+    <div class="az-content pd-y-20 pd-lg-y-30 pd-xl-y-40 col-sm-11">
+        <h4>
+            <legend>{{title}} </legend>
+        </h4>
+        <div class="col-md-12" style="padding-bottom:10px;">
+            <a href="{% url 'address-form' %}" class="btn btn-az-primary" id="add-address" name="add-address">{% trans "Add Address" %}</a>
+        </div>
+        <table id="datatable" class="table table-bordered table-condensed table-striped table-hover table-sm" style="width:100%"></table>
+    </div>
+</div>
+{% endblock %}

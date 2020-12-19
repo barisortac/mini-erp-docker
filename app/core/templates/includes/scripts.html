@@ -1,0 +1,77 @@
+{% load static %}
+<!--   Core   -->
+<script src="{% static 'assets/js/plugins/jquery/dist/jquery.min.js' %}"></script>
+{#<script src="{% static 'assets/js/select2.min.js' %}"></script>#}
+{#<script src="{% static 'assets/js/popper.min.js' %}"></script>#}
+
+
+<script src="{% static 'assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+
+<script src="{% static 'assets/vendor/js-cookie/js.cookie.js' %}"></script>
+<script src="{% static 'assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js' %}"></script>
+<script src="{% static 'assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js' %}"></script>
+
+<script src="{% static 'assets/vendor/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'assets/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+<script src="{% static 'assets/vendor/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+<script src="{% static 'assets/vendor/datatables.net-buttons/js/buttons.flash.min.js' %}"></script>
+<script src="{% static 'assets/vendor/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+<script src="{% static 'assets/vendor/datatables.net-select/js/dataTables.select.min.js' %}"></script>
+
+<script src="{% static '/assets/js/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' %}"></script>
+
+<script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+
+<!--   Optional JS   -->
+<script src="{% static 'assets/js/plugins/chart.js/dist/Chart.min.js' %}"></script>
+<script src="{% static 'assets/js/plugins/chart.js/dist/Chart.extension.js' %}"></script>
+
+<!--   G.Maps   -->
+{#<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>#}
+
+<!--   Argon JS   -->
+    <script src="{% static 'assets/js/argon.js' %}"></script>
+
+<script src="{% static 'assets/js/argon-dashboard.min.js' %}"></script>
+
+{#BECAUSE AUTOCOMPLETE IS USING BOTH ON MODAL FORM AND OTHERSIDE OF MODAL FORM, WE HAVE TO LOAD IT MANUALLY, OTHERWISE FORM.MEDIA INSIDE MODAL FORM WONT BE ENOUGH #}
+<script src="{% static 'autocomplete_light/jquery.init.js' %}"></script>
+<script src="{% static 'vendor/select2/dist/js/select2.full.js' %}"></script>
+<script src="{% static 'vendor/select2/dist/js/i18n/tr.js' %}"></script>
+<script src="{% static 'autocomplete_light/autocomplete.init.js' %}"></script>
+<script src="{% static 'autocomplete_light/forward.js' %}"></script>
+<script src="{% static 'autocomplete_light/select2.js' %}"></script>
+<script src="{% static 'autocomplete_light/jquery.post-setup.js' %}"></script>
+{#BECAUSE AUTOCOMPLETE IS USING BOTH ON MODAL FORM AND OTHERSIDE OF MODAL FORM, WE HAVE TO LOAD IT MANUALLY, OTHERWISE FORM.MEDIA INSIDE MODAL FORM WONT BE ENOUGH #}
+
+{#<script>#}
+{#    $(document).bind("ajaxSend", function () {#}
+{#        $.LoadingOverlay("show");#}
+{#    }).bind("ajaxComplete", function () {#}
+{#        $.LoadingOverlay("hide");#}
+{#    }).bind("complete", function () {#}
+{#        $.LoadingOverlay("hide");#}
+{#    }).bind("error", function () {#}
+{#        $.LoadingOverlay("hide");#}
+{#    }).bind("ajaxStop", function () {#}
+{#        $.LoadingOverlay("hide");#}
+{#    });#}
+{#</script>#}
+
+{#<div id='loader' style="z-index: 9999"><img src="{% static 'assets/img/spinner.gif' %}" alt="spinner"/></div>#}
+{#Note here that beforeSend is called before every call, whereas ajaxStart is triggered only when the first ajax method is called. Likewise for ajaxStop, it is called when the last ajax call finishes. If you have more than one concurrent request, the snippet in this answer won't work properly.#}
+{#<script>#}
+{#jQuery.ajaxSetup({#}
+{#  beforeSend: function() {#}
+{#     $('#loader').show();#}
+{#  },#}
+{#  complete: function(){#}
+{#     $('#loader').hide();#}
+{#  },#}
+{#  success: function() {#}
+{#     $('#loader').hide();#}
+{#  }#}
+{#});#}
+{#</script>#}

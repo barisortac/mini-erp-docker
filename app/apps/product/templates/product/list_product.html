@@ -1,0 +1,141 @@
+{% extends 'layouts/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %} Tables {% endblock title %}
+
+{% block content %}
+
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+        <!-- Page content -->
+        <div class="container-fluid mt-2">
+            <!-- Table -->
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <!-- Card header -->
+                        <div class="card-header">
+                            <h2 class="mb-0">Ürünler</h2>
+                        </div>
+                        <div class="table-responsive py-4">
+                            <table class="table table-flush"
+                                   id="datatable-basic">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Değiştir / Sil</th>
+                                    <th>İsim</th>
+                                    <th>Açıklama</th>
+                                    <th>Ambalaj Birimi</th>
+                                    <th>Cinsi</th>
+                                    <th>Alış Fiyatı</th>
+                                    <th>Satış Fiyatı</th>
+                                    <th>KDV</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+    <script>
+        $(document).ready(function () {
+            var table = $('#datatable-basic').DataTable({
+                dom: 'lBfrtip',
+                language: {
+                    paginate: {
+                        previous: "<i class='fas fa-angle-left'>",
+                        next: "<i class='fas fa-angle-right'>"
+                    }
+                },
+                processing: true,
+                serverSide: true,
+                scrollX: true,
+                responsive: true,
+                minLength: 2,
+                order: [],
+                buttons: [
+                    {
+                        className: 'create-product btn-success',
+                        text: 'Yeni Ürün',
+                    },
+                    "copy", "csv",
+                ],
+                ajax: {
+                    url: "{% url 'list-product-json' %}",
+                    type: "GET",
+                    dataSrc: "data",
+                    processing: true,
+                    complete: function (data) {
+                        populateButtonModals();
+                    },
+                },
+
+                // we need ID column for edit & delete modals (TODO: investigate it)
+                columnDefs: [
+                    {
+                        "targets": [0],
+                        "visible": false,
+                        "searchable": false
+                    },
+                ],
+
+                columns: [
+                    {data: "id"},
+                    {
+                        data: null,
+                        orderable: false,
+                        render: function (data, type, row) {
+                            return '<button type="button" id="update-product-inside" class="bs-modal btn btn-sm btn-primary" data-toggle="modal" data-form-url="{% url "update-product" "0" %}"><span>Değiştir</span></button>'.replace('0', row['id']) +
+                                '<button type="button" id="delete-product-inside" class="bs-modal btn btn-sm btn-danger" data-toggle="modal" data-form-url="{% url "delete-product" "0" %}"><span>Sil</span></button>'.replace('0', row['id']);
+                        }
+                    },
+                    {data: "name"},
+                    {data: "description"},
+                    {data: "package_unit"},
+                    {data: "product_type"},
+                    {data: "buying_price"},
+                    {data: "selling_price"},
+                    {data: "vat_rate"},
+                ]
+            });
+
+            {#$('.dataTables_length select').select2({minimumResultsForSearch: Infinity, width: ''});#}
+
+
+            $(".create-product").modalForm({
+                formURL: "{% url 'create-product' %}"
+            });
+
+
+            function populateButtonModals() {
+                // Todo: event listener didn't work at first time, so after ajax complete,
+                //  this function handles modals, not sure if its healthy
+                $("#update-product-inside, #delete-product-inside").each(function () {
+                    $(this).modalForm({
+                        formURL: $(this).data('form-url')
+                    });
+                });
+            }
+
+
+            //$(".bs-modal").each(function () {
+            //    $(this).modalForm({
+            //        formURL: $(this).data('form-url')
+            //    });
+            //});
+
+        });
+
+
+    </script>
+
+{% endblock %}

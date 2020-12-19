@@ -1,0 +1,81 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<form method="post" action="">
+    {% csrf_token %}
+
+    <div class="modal-header">
+        <h5 class="modal-title">Firma Oluştur</h5>
+        <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        {% for field in form %}
+            <div class="form-group{% if field.errors %} invalid{% endif %}">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {% render_field field class="form-control" placeholder=field.label %}
+{#                {% if field.name == 'tax_office' %}#}
+{#                    <button type="button" id="create-tax-office"#}
+{#                            class="bs-modal btn btn-sm btn-danger"#}
+{#                            data-toggle="modal2"#}
+{#                            data-form-url="{% url "create-tax-office" %}">+#}
+{#                    </button>#}
+{#                {% endif %}#}
+{#                {% for error in field.errors %}#}
+{#                    <p class="help-block">{{ error }}</p>#}
+{#                {% endfor %}#}
+            </div>
+        {% endfor %}
+    </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+    <button type="button" class="submit-btn btn btn-primary">Oluştur</button>
+  </div>
+
+</form>
+
+<script>
+    $(document).ready(function () {
+          var asyncSuccessMessageCreate = [
+            "<div ",
+            "style='position:fixed;top:0;z-index:10000;width:100%;border-radius:0;' ",
+            "class='alert alert-icon alert-success alert-dismissible fade show mb-0' role='alert'>",
+            "Başarılı: Vergi dairesi oluşturuldu.",
+            "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>",
+            "<span aria-hidden='true'>&times;</span>",
+            "</button>",
+            "</div>",
+            "<script>",
+            "$('.alert').fadeTo(2000, 500).slideUp(500, function () {$('.alert').slideUp(500).remove();});",
+            "<\/script>"
+          ].join("");
+
+          function createBookAsyncModalForm() {
+            $("#create-tax-office").modalForm({
+                formURL: "{% url 'create-tax-office' %}",
+                modalID: "#create-inside-modal",
+                asyncUpdate: false,
+                asyncSettings: {
+                  closeOnSubmit: true,
+                  successMessage: asyncSuccessMessageCreate,
+                  dataUrl: null,
+                  dataElementId: null,
+                  dataKey: null,
+                  addModalFormFunction: null,
+                }
+            });
+          }
+          createBookAsyncModalForm();
+
+
+        //$("#create-tax-office").modalForm({
+        //    formURL: "{% url 'create-tax-office' %}",
+        //    modalID: "#create-inside-modal",
+        //});
+
+    });
+</script>

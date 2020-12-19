@@ -1,0 +1,13 @@
+/*.form-group .select2-container {*/
+/*    width: 1em !important;*/
+/*    height: 1em !important;*/
+/*}*/
+
+
+.select2-container .select2-selection--single {
+    height: 3em !important;
+}
+
+.select2-container {
+    min-width: 10em !important;
+}

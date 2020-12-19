@@ -1,0 +1,26 @@
+{% load static %}
+
+<link href="{% static 'assets/img/brand/favicon.png' %}" rel="icon" type="image/png">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<!-- Icons -->
+<link href="{% static 'assets/js/plugins/nucleo/css/nucleo.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet" />
+<!-- CSS Files -->
+<link href="{% static 'assets/css/argon-dashboard.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/css/argon.css' %}" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/vendor/datatables.net-select-bs4/css/select.bootstrap4.min.css' %}">
+<link href="{% static 'assets/css/datatable_custom.css' %}" rel="stylesheet" />
+
+{#BECAUSE AUTOCOMPLETE IS USING BOTH ON MODAL FORM AND OTHERSIDE OF MODAL FORM, WE HAVE TO LOAD IT MANUALLY, OTHERWISE FORM.MEDIA INSIDE MODAL FORM WONT BE ENOUGH #}
+<link href="{% static 'vendor/select2/dist/css/select2.css' %}" type="text/css" media="screen" rel="stylesheet">
+<link href="{% static 'admin/css/autocomplete.css' %}" type="text/css" media="screen" rel="stylesheet">
+<link href="{% static 'autocomplete_light/select2.css' %}" type="text/css" media="screen" rel="stylesheet">
+{#BECAUSE AUTOCOMPLETE IS USING BOTH ON MODAL FORM AND OTHERSIDE OF MODAL FORM, WE HAVE TO LOAD IT MANUALLY, OTHERWISE FORM.MEDIA INSIDE MODAL FORM WONT BE ENOUGH #}
+
+<link href="{% static 'assets/css/autocomplete_custom.css' %}" rel="stylesheet" />
+<link href="{% static 'assets/css/order_item_custom.css' %}" rel="stylesheet" />
+

@@ -1,0 +1,153 @@
+{% load widget_tweaks %}
+
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form.media }}
+    <div class="modal-header">
+        <h3 class="modal-title">Sipariş Kalemi Güncelle</h3>
+        <button type="button" class="close" data-dismiss="modal"
+                aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <div class="{% if form.non_field_errors %}invalid{% endif %} mb-2">
+            {% for error in form.non_field_errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+
+        {% for field in form %}
+            <div class="form-group">
+                {% if field.name == 'order' %}
+                    {% render_field field class="form-control" placeholder=field.label hidden=true %}
+                {% else %}
+                    <label for="{{ field.id_for_label }}">
+                        {{ field.label }}
+                    </label>
+                    {% render_field field class="form-control" placeholder=field.label %}
+                {% endif %}
+
+                <div class="{% if field.errors %} invalid{% endif %}">
+                    {% for error in field.errors %}
+                        <p class="help-block">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="submit-btn btn btn-primary">Update</button>
+    </div>
+
+</form>
+
+<script>
+    $(document).ready(function () {
+
+        $('#id_order').val(window.order_id);
+
+        var _quantity;
+        var _package_unit;
+        var product_package_count_label = $("label[for='id_product']")[0].innerHTML;
+        var _selling_price;
+        var _total_amount;
+        var _vat_rate;
+        var _is_vat_processed = false;
+
+        if (!update_quantity_and_package_count) {
+            var update_quantity_and_package_count = ({_p_unit, change_value_of}) => {
+                if (_p_unit) {
+                    _p_unit = parseInt(_p_unit)
+                } else {
+                    _p_unit = parseInt(_package_unit)
+                }
+
+                _quantity = parseInt($('[name="quantity"]').val());
+                _package_count = parseInt($('[name="package_count"]').val());
+
+                let _res = 0;
+                if ((_quantity && _p_unit) || (_p_unit && _package_count)) {
+                    if (change_value_of === "quantity") {
+                        _res = Math.ceil(parseFloat(_p_unit * _package_count))
+                        $('[name="quantity"]').val(_res);
+                    } else {
+                        //package count
+                        _res = Math.ceil(parseFloat(_quantity / _p_unit))
+                        $('[name="package_count"]').val(_res);
+                    }
+                }
+            }
+        }
+
+        if (!update_total_amount) {
+            var update_total_amount = () => {
+                _quantity = parseFloat($('[name="quantity"]').val());
+                _list_price = parseFloat($('[name="list_price"]').val());
+
+                if (_quantity && _list_price) {
+                    _total_amount = parseFloat(_quantity * _list_price).toFixed(2);
+                    $('[name="total_amount"]').val(_total_amount);
+                    if (!_is_vat_processed) {
+                        __vat_rate = parseFloat(_vat_rate / 100);
+                    } else {
+                        __vat_rate = parseFloat(_vat_rate);
+
+                    }
+                    _is_vat_processed = true;
+                    _total_amount_with_vat = parseFloat(_total_amount + parseFloat(_total_amount * __vat_rate)).toFixed(2);
+                    $('[name="total_amount_with_vat"]').val(_total_amount_with_vat);
+                }
+            }
+        }
+
+
+        $('[name="quantity"], [name="list_price"]').on('change', function () {
+            update_quantity_and_package_count({
+                _p_unit: null,
+                change_value_of: 'package_count'
+            });
+            update_total_amount();
+        });
+
+        $('[name="package_count"]').on('change', function () {
+            update_quantity_and_package_count({
+                _p_unit: null,
+                change_value_of: 'quantity'
+            });
+            update_total_amount();
+        });
+
+        function getProductInfoAndUpdate({product_id}) {
+            $.ajax({
+                type: 'GET',
+                url: "{% url 'get-product' 0 %}".replace(0, product_id),
+                success: function (data) {
+                    _package_unit = parseInt(data.package_unit);
+                    $("label[for='id_product']")[0].innerHTML = product_package_count_label + `: <b>Ambalaj Birimi: ${_package_unit}/koli <b/>`;
+                    update_quantity_and_package_count({_p_unit: _package_unit});
+
+                    let __selling_price = parseFloat(data.selling_price);
+                    _selling_price = __selling_price;
+                    $("label[for='id_product']")[0].innerHTML = $("label[for='id_product']")[0].innerHTML + ` <b>Satış fiyatı: ${__selling_price} TL<b/>`;
+                    $('[name="list_price"]').val(_selling_price);
+
+                    _vat_rate = parseFloat(data.vat_rate);
+                    $("label[for='id_product']")[0].innerHTML = $("label[for='id_product']")[0].innerHTML + ` <b>KDV: %${_vat_rate}<b/>`;
+                }
+            });
+        }
+
+        let _product = $('[name="product"]');
+        let _product_id = _product.val();
+        getProductInfoAndUpdate({product_id: _product_id});
+
+        _product.on('change', function () {
+            if (product_id) {
+                getProductInfoAndUpdate({product_id: _product_id});
+            }
+        });
+    });
+</script>
