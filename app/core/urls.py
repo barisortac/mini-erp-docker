@@ -3,12 +3,13 @@
 License: MIT
 Copyright (c) 2019 - present AppSeed.us
 """
-
+from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include  # add this
 
 from django.urls import path, re_path, include
 from . import views
+from django.conf.urls.i18n import i18n_patterns
 
 
 urlpatterns = [
@@ -29,3 +30,7 @@ urlpatterns = [
     path('address/', include('address.urls')),
     # The home page
 ]
+
+urlpatterns += i18n_patterns(
+    url(r'^i18n/', include('django.conf.urls.i18n')),
+)

@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white"
      id="sidenav-main">
@@ -67,7 +68,7 @@
                            data-toggle="collapse" role="button"
                            aria-expanded="false" aria-controls="navbar-tables">
                             <i class="ni ni-align-left-2 text-default"></i>
-                            <span class="nav-link-text">Firmalar</span>
+                            <span class="nav-link-text">{% trans "Companies" %}</span>
                         </a>
                         <div class="collapse" id="navbar-tables-company">
                             <ul class="nav nav-sm flex-column">
