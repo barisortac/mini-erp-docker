@@ -7,7 +7,8 @@
         <!-- Brand -->
         <div class="sidenav-header d-flex align-items-center">
             <a class="navbar-brand" href="./index.html">
-                <img src="{% static 'assets/img/brand/logo.png' %}" class="navbar-brand-img" alt="...">
+                <img src="{% static 'assets/img/brand/logo.png' %}"
+                     class="navbar-brand-img" alt="...">
             </a>
             <div class="ml-auto">
                 <!-- Sidenav toggler -->
@@ -26,33 +27,33 @@
             <div class="collapse navbar-collapse" id="sidenav-collapse-main">
                 <!-- Nav items -->
                 <ul class="navbar-nav">
-{#                    <li class="nav-item {% if 'index' in segment %} active {% endif %}">#}
-{#                        <a class=" nav-link" href="/"> <i#}
-{#                                class="ni ni-tv-2 text-primary"></i> Dashboard#}
-{#                        </a>#}
-{#                    </li>#}
-{#                    <li class="nav-item {% if 'icons' in segment %} active {% endif %}">#}
-{#                        <a class="nav-link " href="/icons.html">#}
-{#                            <i class="ni ni-planet text-blue"></i> Icons#}
-{#                        </a>#}
-{#                    </li>#}
-{#                    <li class="nav-item {% if 'maps' in segment %} active {% endif %}">#}
-{#                        <a class="nav-link " href="/maps.html">#}
-{#                            <i class="ni ni-pin-3 text-orange"></i> Maps#}
-{#                        </a>#}
-{#                    </li>#}
-{#                    <li class="nav-item {% if 'profile' in segment %} active {% endif %}">#}
-{#                        <a class="nav-link " href="/profile.html">#}
-{#                            <i class="ni ni-single-02 text-yellow"></i> User#}
-{#                            profile#}
-{#                        </a>#}
-{#                    </li>#}
-{#                    <li class="nav-item {% if 'tables' in segment %} active {% endif %}">#}
-{#                        <a class="nav-link " href="/tables.html">#}
-{#                            <i class="ni ni-bullet-list-67 text-info"></i>#}
-{#                            Tables#}
-{#                        </a>#}
-{#                    </li>#}
+                    {#                    <li class="nav-item {% if 'index' in segment %} active {% endif %}">#}
+                    {#                        <a class=" nav-link" href="/"> <i#}
+                    {#                                class="ni ni-tv-2 text-primary"></i> Dashboard#}
+                    {#                        </a>#}
+                    {#                    </li>#}
+                    {#                    <li class="nav-item {% if 'icons' in segment %} active {% endif %}">#}
+                    {#                        <a class="nav-link " href="/icons.html">#}
+                    {#                            <i class="ni ni-planet text-blue"></i> Icons#}
+                    {#                        </a>#}
+                    {#                    </li>#}
+                    {#                    <li class="nav-item {% if 'maps' in segment %} active {% endif %}">#}
+                    {#                        <a class="nav-link " href="/maps.html">#}
+                    {#                            <i class="ni ni-pin-3 text-orange"></i> Maps#}
+                    {#                        </a>#}
+                    {#                    </li>#}
+                    {#                    <li class="nav-item {% if 'profile' in segment %} active {% endif %}">#}
+                    {#                        <a class="nav-link " href="/profile.html">#}
+                    {#                            <i class="ni ni-single-02 text-yellow"></i> User#}
+                    {#                            profile#}
+                    {#                        </a>#}
+                    {#                    </li>#}
+                    {#                    <li class="nav-item {% if 'tables' in segment %} active {% endif %}">#}
+                    {#                        <a class="nav-link " href="/tables.html">#}
+                    {#                            <i class="ni ni-bullet-list-67 text-info"></i>#}
+                    {#                            Tables#}
+                    {#                        </a>#}
+                    {#                    </li>#}
 
 
                     {#                    <li class="nav-item {% if 'company' in segment %} active {% endif %}">#}
@@ -67,18 +68,18 @@
                         <a class="nav-link" href="#navbar-tables-company"
                            data-toggle="collapse" role="button"
                            aria-expanded="false" aria-controls="navbar-tables">
-                            <i class="ni ni-align-left-2 text-default"></i>
+                            <i class="far fa-building"></i>
                             <span class="nav-link-text">{% trans "Companies" %}</span>
                         </a>
                         <div class="collapse" id="navbar-tables-company">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
                                     <a href="{% url 'company-list' %}"
-                                       class="nav-link">Firmalar</a>
+                                       class="nav-link">{% trans "Companies" %}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{% url 'tax-office-list' %}"
-                                       class="nav-link">Vergi Daireleri</a>
+                                       class="nav-link">{% trans "Tax Offices" %}</a>
                                 </li>
                             </ul>
                         </div>
@@ -89,18 +90,18 @@
                         <a class="nav-link" href="#navbar-tables-product"
                            data-toggle="collapse" role="button"
                            aria-expanded="false" aria-controls="navbar-tables">
-                            <i class="ni ni-cart text-info"></i>
-                            <span class="nav-link-text">Ürünler</span>
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="nav-link-text">{% trans "Products" %}</span>
                         </a>
                         <div class="collapse" id="navbar-tables-product">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
                                     <a href="{% url 'list-product' %}"
-                                       class="nav-link">Ürünler</a>
+                                       class="nav-link">{% trans "Products" %}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{% url 'list-product-type' %}"
-                                       class="nav-link">Ürün Tipleri</a>
+                                       class="nav-link">{% trans "Product Types" %}</a>
                                 </li>
                             </ul>
                         </div>
@@ -111,14 +112,14 @@
                         <a class="nav-link" href="#navbar-tables-order"
                            data-toggle="collapse" role="button"
                            aria-expanded="false" aria-controls="navbar-tables">
-                            <i class="ni ni-cart text-info"></i>
-                            <span class="nav-link-text">Siparişler</span>
+                            <i class="fas fa-shipping-fast"></i>
+                            <span class="nav-link-text">{% trans "Orders" %}</span>
                         </a>
                         <div class="collapse" id="navbar-tables-order">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
                                     <a href="{% url 'list-order' %}"
-                                       class="nav-link">Siparişler</a>
+                                       class="nav-link">{% trans "Orders" %}</a>
                                 </li>
                             </ul>
                         </div>
@@ -126,7 +127,7 @@
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
                                     <a href="{% url 'list-order-item' %}"
-                                       class="nav-link">Sipariş Kalemleri</a>
+                                       class="nav-link">{% trans "Order Items" %}</a>
                                 </li>
                             </ul>
                         </div>
@@ -135,49 +136,70 @@
 
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">
-                            <i class="ni ni-user-run text-red"></i> Logout
+                            <i class="ni ni-user-run text-red"></i> {% trans "Logout" %}
                         </a>
                     </li>
                 </ul>
                 <!-- Divider -->
                 <hr class="my-3">
                 <!-- Heading -->
-{#                <h6 class="navbar-heading p-0 text-muted">Documentation</h6>#}
-{#                <!-- Navigation -->#}
-{#                <ul class="navbar-nav mb-md-3">#}
-{#                    <li class="nav-item">#}
-{#                        <a class="nav-link"#}
-{#                           href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html"#}
-{#                           target="_blank">#}
-{#                            <i class="ni ni-spaceship"></i>#}
-{#                            <span class="nav-link-text">Getting started</span>#}
-{#                        </a>#}
-{#                    </li>#}
-{#                    <li class="nav-item">#}
-{#                        <a class="nav-link"#}
-{#                           href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html"#}
-{#                           target="_blank">#}
-{#                            <i class="ni ni-palette"></i>#}
-{#                            <span class="nav-link-text">Foundation</span>#}
-{#                        </a>#}
-{#                    </li>#}
-{#                    <li class="nav-item">#}
-{#                        <a class="nav-link"#}
-{#                           href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html"#}
-{#                           target="_blank">#}
-{#                            <i class="ni ni-ui-04"></i>#}
-{#                            <span class="nav-link-text">Components</span>#}
-{#                        </a>#}
-{#                    </li>#}
-{#                    <li class="nav-item">#}
-{#                        <a class="nav-link"#}
-{#                           href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html"#}
-{#                           target="_blank">#}
-{#                            <i class="ni ni-chart-pie-35"></i>#}
-{#                            <span class="nav-link-text">Plugins</span>#}
-{#                        </a>#}
-{#                    </li>#}
-{#                </ul>#}
+                {#                <h6 class="navbar-heading p-0 text-muted">Documentation</h6>#}
+                {#                <!-- Navigation -->#}
+                {#                <ul class="navbar-nav mb-md-3">#}
+                {#                    <li class="nav-item">#}
+                {#                        <a class="nav-link"#}
+                {#                           href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html"#}
+                {#                           target="_blank">#}
+                {#                            <i class="ni ni-spaceship"></i>#}
+                {#                            <span class="nav-link-text">Getting started</span>#}
+                {#                        </a>#}
+                {#                    </li>#}
+                {#                    <li class="nav-item">#}
+                {#                        <a class="nav-link"#}
+                {#                           href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html"#}
+                {#                           target="_blank">#}
+                {#                            <i class="ni ni-palette"></i>#}
+                {#                            <span class="nav-link-text">Foundation</span>#}
+                {#                        </a>#}
+                {#                    </li>#}
+                {#                    <li class="nav-item">#}
+                {#                        <a class="nav-link"#}
+                {#                           href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html"#}
+                {#                           target="_blank">#}
+                {#                            <i class="ni ni-ui-04"></i>#}
+                {#                            <span class="nav-link-text">Components</span>#}
+                {#                        </a>#}
+                {#                    </li>#}
+                {#                    <li class="nav-item">#}
+                {#                        <a class="nav-link"#}
+                {#                           href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html"#}
+                {#                           target="_blank">#}
+                {#                            <i class="ni ni-chart-pie-35"></i>#}
+                {#                            <span class="nav-link-text">Plugins</span>#}
+                {#                        </a>#}
+                {#                    </li>#}
+                {#                </ul>#}
+                <div class="nav-link">
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input name="next" type="hidden"
+                               value="{{ redirect_to }}"/>
+                        <label>
+                            <select name="language" class="custom-select custom-select-sm form-control form-control-sm">
+                                {% get_current_language as SELECTEDLANG %}
+                                {% get_available_languages as LANGUAGES %}
+                                {% for lang in LANGUAGES %}
+                                    <option value="{{ lang.0 }}"
+                                            {% if lang.0 == SELECTEDLANG %}selected{% endif %}>
+                                        {% if lang.1 == 'English' %}
+                                            English{% else %}
+                                            {{ lang.1 }}{% endif %}</option>
+                                {% endfor %}
+                            </select>
+                        </label>
+                        <input class="btn btn-outline-info" type="submit" value='{% trans "Change" %}'/>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

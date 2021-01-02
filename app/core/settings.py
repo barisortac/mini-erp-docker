@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'order',
     'product',
     'order_item',
+    'rosetta',
 ]
 
 MIDDLEWARE = [

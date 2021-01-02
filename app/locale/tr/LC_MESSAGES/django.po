@@ -8,43 +8,44 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-29 23:56+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2021-01-02 12:47+0300\n"
+"PO-Revision-Date: 2021-01-02 12:46+0156\n"
+"Last-Translator: b'  <test@test.copm>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.9.5\n"
 
 #: apps/address/templates/address_list.html:26
 msgid "Address Title"
-msgstr ""
+msgstr "Adres Başlığı"
 
 #: apps/address/templates/address_list.html:27
 msgid "Address"
-msgstr ""
+msgstr "Adres"
 
 #: apps/address/templates/address_list.html:28
 msgid "City"
-msgstr ""
+msgstr "Şehir"
 
 #: apps/address/templates/address_list.html:29
 msgid "Township"
-msgstr ""
+msgstr "İlçe"
 
 #: apps/address/templates/address_list.html:30
 msgid "District"
-msgstr ""
+msgstr "Mahalle"
 
 #: apps/address/templates/address_list.html:31
 msgid "Postal Code"
-msgstr ""
+msgstr "Posta Kodu"
 
 #: apps/address/templates/address_list.html:32
 msgid "Phone"
-msgstr ""
+msgstr "Telefon"
 
 #: apps/address/templates/address_list.html:33
 msgid "Internal"
@@ -52,47 +53,97 @@ msgstr ""
 
 #: apps/address/templates/address_list.html:34
 msgid "Fax"
-msgstr ""
+msgstr "Faks"
 
 #: apps/address/templates/address_list.html:35
 msgid "Tax No"
-msgstr ""
+msgstr "Vergi No"
 
 #: apps/address/templates/address_list.html:36
 msgid "Tax Office"
-msgstr ""
+msgstr "Vergi Dairesi"
 
 #: apps/address/templates/address_list.html:88
 msgid "Add Address"
 msgstr ""
 
 #: apps/company/templates/company/list_company.html:21
+#: core/templates/includes/sidenav.html:72
 msgid "Companies"
 msgstr "Firmalar"
 
+#: apps/product/templates/product/list_product.html:19
+#: core/templates/includes/sidenav.html:100
+msgid "Products"
+msgstr "Ürünler"
+
+#: apps/product/templates/product/list_product.html:26
+msgid "ID"
+msgstr "ID"
+
+#: apps/product/templates/product/list_product.html:27
+#: apps/product/templates/product/list_product.html:97
+#: core/templates/includes/sidenav.html:200
+#: venv_docker_resan/lib/python3.9/site-packages/django/forms/widgets.py:400
+msgid "Change"
+msgstr "Değiştir"
+
+#: apps/product/templates/product/list_product.html:27
+#: apps/product/templates/product/list_product.html:98
+msgid "Remove"
+msgstr "Sil"
+
+#: apps/product/templates/product/list_product.html:28
+msgid "Name"
+msgstr "Ad"
+
+#: apps/product/templates/product/list_product.html:29
+msgid "Description"
+msgstr "Açıklama"
+
+#: apps/product/templates/product/list_product.html:30
+msgid "Package Unit"
+msgstr "Ambalaj Birimi"
+
+#: apps/product/templates/product/list_product.html:31
+msgid "Type"
+msgstr "Cinsi"
+
+#: apps/product/templates/product/list_product.html:32
+msgid "Buying Price"
+msgstr "Alış Fiyatı"
+
+#: apps/product/templates/product/list_product.html:33
+msgid "Selling Price"
+msgstr "Satış Fiyatı"
+
+#: apps/product/templates/product/list_product.html:34
+msgid "VAT"
+msgstr "KDV"
+
 #: core/models.py:24
 msgid "Created At"
-msgstr ""
+msgstr "Oluşma Zamanı"
 
 #: core/models.py:29
 msgid "Created By"
-msgstr ""
+msgstr "Oluşturan"
 
 #: core/models.py:33
 msgid "Updated At"
-msgstr ""
+msgstr "Güncelleme Zamanı"
 
 #: core/models.py:38
 msgid "Updated By"
-msgstr ""
+msgstr "Güncelleyen"
 
 #: core/models.py:40
 msgid "Is Active"
-msgstr ""
+msgstr "Aktif mi"
 
 #: core/models.py:42
 msgid "Is Deleted"
-msgstr ""
+msgstr "Silinmiş mi"
 
 #: core/models.py:44
 msgid "Deleted At"
@@ -100,21 +151,38 @@ msgstr ""
 
 #: core/models.py:49
 msgid "Deleted By"
-msgstr ""
-
-#: core/settings.py:135
-msgid "English"
-msgstr ""
+msgstr "Silen"
 
 #: core/settings.py:136
+msgid "English"
+msgstr "İngilizce"
+
+#: core/settings.py:137
 msgid "Türkçe"
+msgstr "Türkçe"
+
+#: core/templates/includes/sidenav.html:104
+msgid "Product Types"
 msgstr ""
+
+#: core/templates/includes/sidenav.html:116
+#: core/templates/includes/sidenav.html:122
+msgid "Orders"
+msgstr "Siparişler"
+
+#: core/templates/includes/sidenav.html:130
+msgid "Order Items"
+msgstr "Sipariş Kalemleri"
+
+#: core/templates/includes/sidenav.html:139
+msgid "Logout"
+msgstr "Çıkış Yap"
 
 #: venv_docker_resan/lib/python3.9/site-packages/crispy_forms/tests/test_form_helper.py:129
 #: venv_docker_resan/lib/python3.9/site-packages/crispy_forms/tests/test_form_helper.py:139
 #: venv_docker_resan/lib/python3.9/site-packages/django/forms/fields.py:54
 msgid "This field is required."
-msgstr ""
+msgstr "Bu alan zorunludur."
 
 #: venv_docker_resan/lib/python3.9/site-packages/crispy_forms/tests/test_layout.py:361
 msgid "i18n text"
@@ -127,11 +195,11 @@ msgstr ""
 #: venv_docker_resan/lib/python3.9/site-packages/crispy_forms/tests/test_layout_objects.py:129
 #: venv_docker_resan/lib/python3.9/site-packages/django/core/validators.py:20
 msgid "Enter a valid value."
-msgstr ""
+msgstr "Lütfen geçerli bir değer girin."
 
 #: venv_docker_resan/lib/python3.9/site-packages/django/contrib/messages/apps.py:7
 msgid "Messages"
-msgstr ""
+msgstr "Mesajlar"
 
 #: venv_docker_resan/lib/python3.9/site-packages/django/contrib/sitemaps/apps.py:7
 msgid "Site Maps"
@@ -722,10 +790,6 @@ msgstr ""
 
 #: venv_docker_resan/lib/python3.9/site-packages/django/forms/widgets.py:399
 msgid "Currently"
-msgstr ""
-
-#: venv_docker_resan/lib/python3.9/site-packages/django/forms/widgets.py:400
-msgid "Change"
 msgstr ""
 
 #: venv_docker_resan/lib/python3.9/site-packages/django/forms/widgets.py:709

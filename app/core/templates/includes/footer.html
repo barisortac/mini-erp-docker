@@ -34,23 +34,23 @@
 {#    </div>#}
 {#</footer>#}
 
-<footer class="footer mr-4">
-    <div class="row align-items-end justify-content-lg-end">
-            <form action="{% url 'set_language' %}" method="post">
-                {% csrf_token %}
-                <input name="next" type="hidden" value="{{ redirect_to }}"/>
-                <select name="language">
-                    {% get_current_language as SELECTEDLANG %}
-                    {% get_available_languages as LANGUAGES %}
-                    {% for lang in LANGUAGES %}
-                        <option value="{{ lang.0 }}"
-                                {% if lang.0 == SELECTEDLANG %}selected{% endif %}>
-                            {% if lang.1 == 'English' %}English{% else %}
-                                {{ lang.1 }}{% endif %}</option>
-                    {% endfor %}
-                </select>
-                <input type="submit" value='{% trans "Change" %}'/>
-            </form>
-    </div>
-</footer>
+{#<footer class="footer mr-4">#}
+{#    <div class="row align-items-end justify-content-lg-end">#}
+{#            <form action="{% url 'set_language' %}" method="post">#}
+{#                {% csrf_token %}#}
+{#                <input name="next" type="hidden" value="{{ redirect_to }}"/>#}
+{#                <select name="language">#}
+{#                    {% get_current_language as SELECTEDLANG %}#}
+{#                    {% get_available_languages as LANGUAGES %}#}
+{#                    {% for lang in LANGUAGES %}#}
+{#                        <option value="{{ lang.0 }}"#}
+{#                                {% if lang.0 == SELECTEDLANG %}selected{% endif %}>#}
+{#                            {% if lang.1 == 'English' %}English{% else %}#}
+{#                                {{ lang.1 }}{% endif %}</option>#}
+{#                    {% endfor %}#}
+{#                </select>#}
+{#                <input type="submit" value='{% trans "Change" %}'/>#}
+{#            </form>#}
+{#    </div>#}
+{#</footer>#}
 
