@@ -4,15 +4,16 @@
 # Copyright 2011-2013, Kirill Lebedev
 #
 
+import copy
+import json
 import sys
+
+import shapely.affinity
 import shapely.geometry
 import shapely.wkb
-import shapely.affinity
 from osgeo import ogr
 from osgeo import osr
-import json
-import codecs
-import copy
+
 
 class Map:
   def __init__(self, name, language):

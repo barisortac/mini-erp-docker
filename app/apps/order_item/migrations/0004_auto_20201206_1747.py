@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('order_item', '0003_auto_20201206_1707'),
     ]
@@ -18,6 +17,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='orderitem',
             name='total_amount_with_vat',
-            field=models.FloatField(default=0, verbose_name='Toplam Tutar (KDVli)'),
+            field=models.FloatField(default=0,
+                                    verbose_name='Toplam Tutar (KDVli)'),
         ),
     ]

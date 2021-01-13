@@ -3,7 +3,6 @@ from datetime import datetime
 from bootstrap_modal_forms.generic import (
     BSModalCreateView,
     BSModalUpdateView,
-    BSModalReadView,
     BSModalDeleteView
 )
 from django.contrib.auth.decorators import login_required
@@ -11,12 +10,11 @@ from django.core.exceptions import ImproperlyConfigured
 from django.db.models import Q
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django_datatables_view.base_datatable_view import BaseDatatableView
 from django.views import generic
+from django_datatables_view.base_datatable_view import BaseDatatableView
 
-
-from .models import Order
 from .forms import OrderModelCreateForm, OrderModelUpdateForm
+from .models import Order
 
 
 @login_required
@@ -27,35 +25,35 @@ def order_list(request):
 class OrderListJson(BaseDatatableView):
     model = Order
     columns = [
-            "id"
-            "order_date",
-            "company",
-            "delivery_date",
-            "order_type",
-            "payment_type",
-            "note",
-            "total_quantity",
-            "total_package_count",
-            "discount",
-            "additional_discount",
-            "total_amount",
-            "total_amount_with_vat",
-        ]
+        "id"
+        "order_date",
+        "company",
+        "delivery_date",
+        "order_type",
+        "payment_type",
+        "note",
+        "total_quantity",
+        "total_package_count",
+        "discount",
+        "additional_discount",
+        "total_amount",
+        "total_amount_with_vat",
+    ]
     order_columns = [
-            "id"
-            "order_date",
-            "company",
-            "delivery_date",
-            "order_type",
-            "payment_type",
-            "note",
-            "total_quantity",
-            "total_package_count",
-            "discount",
-            "additional_discount",
-            "total_amount",
-            "total_amount_with_vat",
-        ]
+        "id"
+        "order_date",
+        "company",
+        "delivery_date",
+        "order_type",
+        "payment_type",
+        "note",
+        "total_quantity",
+        "total_package_count",
+        "discount",
+        "additional_discount",
+        "total_amount",
+        "total_amount_with_vat",
+    ]
 
     def filter_queryset(self, qs):
         sSearch = self.request.GET.get('search[value]', None)

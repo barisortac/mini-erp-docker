@@ -1,5 +1,4 @@
 {% extends 'layouts/base.html' %}
-{% load i18n %}
 {% load static %}
 
 {% block title %} Tables {% endblock title %}
@@ -24,7 +23,7 @@
                                 <thead class="thead-light">
                                 <tr>
                                     <th>{% trans "ID" %}</th>
-                                    <th>{% trans "Change" %} / {% trans "Remove" %}</th>
+                                    <th>{% trans "Update" %} / {% trans "Remove" %}</th>
                                     <th>{% trans "Name" %}</th>
                                     <th>{% trans "Description" %}</th>
                                     <th>{% trans "Package Unit" %}</th>
@@ -65,7 +64,7 @@
                 buttons: [
                     {
                         className: 'create-product btn-success',
-                        text: 'Yeni Ürün',
+                        text: '{% trans "New Product" %}',
                     },
                     "copy", "csv",
                 ],
@@ -94,7 +93,7 @@
                         data: null,
                         orderable: false,
                         render: function (data, type, row) {
-                            return '<button type="button" id="update-product-inside" class="bs-modal btn btn-sm btn-primary" data-toggle="modal" data-form-url="{% url "update-product" "0" %}"><span>{% trans "Change" %}</span></button>'.replace('0', row['id']) +
+                            return '<button type="button" id="update-product-inside" class="bs-modal btn btn-sm btn-primary" data-toggle="modal" data-form-url="{% url "update-product" "0" %}"><span>{% trans "Update" %}</span></button>'.replace('0', row['id']) +
                                 '<button type="button" id="delete-product-inside" class="bs-modal btn btn-sm btn-danger" data-toggle="modal" data-form-url="{% url "delete-product" "0" %}"><span>{% trans "Remove" %}</span></button>'.replace('0', row['id']);
                         }
                     },

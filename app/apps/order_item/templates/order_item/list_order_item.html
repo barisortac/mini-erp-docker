@@ -18,7 +18,8 @@
                         <!-- Card header -->
                         <div class="card-header">
                             {% if company_name %}
-                                <h2 class="mb-0">Sipariş Kalemleri - {{ order_id }} - {{ company_name }}</h2>
+                                <h2 class="mb-0">Sipariş Kalemleri
+                                    - {{ order_id }} - {{ company_name }}</h2>
                             {% else %}
                                 <h2 class="mb-0">Sipariş Kalemleri</h2>
                             {% endif %}
@@ -26,42 +27,43 @@
                         {% if order_json %}
                             <div class="card-header">
                                 <table class="order-table">
-                                  <thead>
+                                    <thead>
                                     <tr>
-                                      <th scope="col">Firma</th>
-                                      <th scope="col">Sipariş Tarihi</th>
-                                      <th scope="col">Teslim Tarihi</th>
-                                      <th scope="col">Tahsilat Türü</th>
-                                      <th scope="col">Sipariş Türü</th>
-                                      <th scope="col">Durumu</th>
-                                      <th scope="col">İndirim</th>
-                                      <th scope="col">Ek İndirim</th>
-                                      <th scope="col">Toplam Sayı</th>
-                                      <th scope="col">Toplam Paket Sayısı</th>
-                                      <th scope="col">Toplam Tutar (KDV'siz)</th>
-                                      <th scope="col">Toplam Tutar (KDV'li)</th>
+                                        <th scope="col">{% trans "Company" %}</th>
+                                        <th scope="col">{% trans "Order Date" %}</th>
+                                        <th scope="col">{% trans "Deliver Date" %}</th>
+                                        <th scope="col">{% trans "Payment Type" %}</th>
+                                        <th scope="col">{% trans "Order Type" %}</th>
+                                        <th scope="col">{% trans "Status" %}</th>
+                                        <th scope="col">{% trans "Discount" %}</th>
+                                        <th scope="col">{% trans "Additional Discount" %}</th>
+                                        <th scope="col">{% trans "Total Quantity" %}</th>
+                                        <th scope="col">{% trans "Total Package Count" %}</th>
+                                        <th scope="col">{% trans "Total Amount" %}</th>
+                                        <th scope="col">{% trans "Total Amount with VAT" %}</th>
                                     </tr>
-                                  </thead>
-                                  <tbody>
+                                    </thead>
+                                    <tbody>
                                     <tr>
-                                      <td data-label="Firma">{{ order_json.company }}</td>
-                                      <td data-label="Sipariş Tarihi">{{ order_json.order_date }}</td>
-                                      <td data-label="Teslim Tarihi">{{ order_json.delivery_date }}</td>
-                                      <td data-label="Tahsilat Türü">{{ order_json.payment_type }}</td>
-                                      <td data-label="Sipariş Türü">{{ order_json.order_type }}</td>
-                                      <td data-label="Durumu">{{ order_json.state }}</td>
-                                      <td data-label="İndirim">{{ order_json.discount }}</td>
-                                      <td data-label="Ek İndirim">{{ order_json.additional_discount }}</td>
-                                      <td data-label="Toplam Sayı">{{ order_json.total_quantity }}</td>
-                                      <td data-label="Toplam Paket Sayısı">{{ order_json.total_package_count }}</td>
-                                      <td data-label="Toplam Tutar (KDV'siz)">{{ order_json.total_amount }}</td>
-                                      <td data-label="Toplam Tutar (KDV'li)">{{ order_json.total_amount_with_vat }}</td>
+                                        <td data-label="Firma">{{ order_json.company }}</td>
+                                        <td data-label="Sipariş Tarihi">{{ order_json.order_date }}</td>
+                                        <td data-label="Teslim Tarihi">{{ order_json.delivery_date }}</td>
+                                        <td data-label="Tahsilat Türü">{{ order_json.payment_type }}</td>
+                                        <td data-label="Sipariş Türü">{{ order_json.order_type }}</td>
+                                        <td data-label="Durumu">{{ order_json.state }}</td>
+                                        <td data-label="İndirim">{{ order_json.discount }}</td>
+                                        <td data-label="Ek İndirim">{{ order_json.additional_discount }}</td>
+                                        <td data-label="Toplam Sayı">{{ order_json.total_quantity }}</td>
+                                        <td data-label="Toplam Paket Sayısı">{{ order_json.total_package_count }}</td>
+                                        <td data-label="Toplam Tutar (KDV'siz)">{{ order_json.total_amount }}</td>
+                                        <td data-label="Toplam Tutar (KDV'li)">{{ order_json.total_amount_with_vat }}</td>
                                     </tr>
-                                  </tbody>
+                                    </tbody>
                                 </table>
-                                <div class="pt-2" style="font-size: 0.8125em !important">
+                                <div class="pt-2"
+                                     style="font-size: 0.8125em !important">
                                     {% if order_json.note %}
-                                            <b>Not:</b> {{ order_json.note }}
+                                        <b>Not:</b> {{ order_json.note }}
                                     {% endif %}
                                 </div>
                             </div>
@@ -71,15 +73,15 @@
                                    id="datatable-basic">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Değiştir / Sil</th>
-                                    <th>Sipariş</th>
-                                    <th>Ürün</th>
-                                    <th>Sipariş Miktarı</th>
-                                    <th>Koli Adedi</th>
-                                    <th>Satış Fiyatı</th>
-                                    <th>Toplam Fiyat (KDV'siz)</th>
-                                    <th>Toplam Fiyat (KDV'li)</th>
+                                    <th>{% trans "ID" %}</th>
+                                    <th>{% trans "Update" %} / {% trans "Remove" %}</th>
+                                    <th>{% trans "Order" %}</th>
+                                    <th>{% trans "Product" %}</th>
+                                    <th>{% trans "Quantity" %}</th>
+                                    <th>{% trans "Package Quantity" %}</th>
+                                    <th>{% trans "Selling Price" %}</th>
+                                    <th>{% trans "Total Amount" %}</th>
+                                    <th>{% trans "Total Amount with VAT" %}</th>
                                 </tr>
                                 </thead>
                             </table>
@@ -87,150 +89,115 @@
                     </div>
                 </div>
             </div>
-            <!-- Footer -->
-            <footer class="footer pt-0">
-                <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-6">
-                        <div class="copyright text-center text-lg-left text-muted">
-                            &copy; 2019 <a href="https://www.creative-tim.com"
-                                           class="font-weight-bold ml-1"
-                                           target="_blank">Creative Tim</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com"
-                                   class="nav-link" target="_blank">Creative
-                                    Tim</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com/presentation"
-                                   class="nav-link" target="_blank">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="http://blog.creative-tim.com"
-                                   class="nav-link" target="_blank">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com/license"
-                                   class="nav-link" target="_blank">License</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </footer>
-        </div>
-    </div>
 
 {% endblock %}
 
 {% block javascripts %}
 
-<script>
-    $(document).ready(function() {
-        var order_id = '{{ order_id }}';
-        window.order_id = order_id;
-        var table = $('#datatable-basic').DataTable({
-            dom: 'lBfrtip',
-            language: {
-                paginate: {
-                    previous: "<i class='fas fa-angle-left'>",
-                    next: "<i class='fas fa-angle-right'>"
-                }
-            },
-            processing: true,
-            serverSide: true,
-            scrollX: true,
-            responsive: true,
-            minLength: 2,
-            order: [],
-            buttons: [
-                {
-                    className: 'create-order-item btn-success',
-                    text: 'Yeni Sipariş Kalemi',
+    <script>
+        $(document).ready(function () {
+            var order_id = '{{ order_id }}';
+            window.order_id = order_id;
+            var table = $('#datatable-basic').DataTable({
+                dom: 'lBfrtip',
+                language: {
+                    paginate: {
+                        previous: "<i class='fas fa-angle-left'>",
+                        next: "<i class='fas fa-angle-right'>"
+                    }
                 },
-                {
-                    className:"update-order btn-warning",
-                    text: "Siparişi Düzenle",
-                },
-                "copy", "csv",
-            ],
-            ajax: {
-                url: order_id ? "{% url 'list-order-item-json' 0 %}".replace(0, order_id) : "{% url 'list-order-item-json' %}",
-                type: "GET",
-                dataSrc: "data",
                 processing: true,
-                complete: function (data) {
-                    populateButtonModals();
-                    if (data.responseJSON && !data.responseJSON.recordsTotal) {
-                        $('.create-order-item').click();
-                    }
+                serverSide: true,
+                scrollX: true,
+                responsive: true,
+                minLength: 2,
+                order: [],
+                buttons: [
+                    {
+                        className: 'create-order-item btn-success',
+                        text: 'Yeni Sipariş Kalemi',
+                    },
+                    {
+                        className: "update-order btn-warning",
+                        text: "Siparişi Düzenle",
+                    },
+                    "copy", "csv",
+                ],
+                ajax: {
+                    url: order_id ? "{% url 'list-order-item-json' 0 %}".replace(0, order_id) : "{% url 'list-order-item-json' %}",
+                    type: "GET",
+                    dataSrc: "data",
+                    processing: true,
+                    complete: function (data) {
+                        populateButtonModals();
+                        if (data.responseJSON && !data.responseJSON.recordsTotal) {
+                            $('.create-order-item').click();
+                        }
+                    },
                 },
-            },
 
-            // we need ID column for edit & delete modals (TODO: investigate it)
-            columnDefs: [
-                {
-                    "targets": [ 0 ],
-                    "visible": false,
-                    "searchable": false
-                },
-            ],
+                // we need ID column for edit & delete modals (TODO: investigate it)
+                columnDefs: [
+                    {
+                        "targets": [0],
+                        "visible": false,
+                        "searchable": false
+                    },
+                ],
 
-            columns: [
-                { data: "id" },
-                {
-                    data: null,
-                    orderable: false,
-                    render: function ( data, type, row ) {
-                    return '<button type="button" id="update-order-item-inside" class="bs-modal btn btn-sm btn-primary" data-toggle="modal" data-form-url="{% url "update-order-item" "0" %}"><span>Değiştir</span></button>'.replace('0', row['id']) +
-                    '<button type="button" id="delete-order-item-inside" class="bs-modal btn btn-sm btn-danger" data-toggle="modal" data-form-url="{% url "delete-order-item" "0" %}"><span>Sil</span></button>'.replace('0', row['id']);
-                    }
-                },
-                { data: "order" },
-                { data: "product" },
-                { data: "quantity" },
-                { data: "package_count" },
-                { data: "list_price" },
-                { data: "total_amount" },
-                { data: "total_amount_with_vat" },
-            ]
-        });
-
-        {#$('.dataTables_length select').select2({minimumResultsForSearch: Infinity, width: ''});#}
-
-        $(".create-order-item").modalForm({
-            formURL: "{% url 'create-order-item' %}"
-        });
-
-        $(".update-order").modalForm({
-            formURL: "{% url 'update-order' 0 %}".replace(0, order_id)
-        });
-
-        function populateButtonModals () {
-            // Todo: event listener didn't work at first time, so after ajax complete,
-            //  this function handles modals, not sure if its healthy
-            $("#update-order-item-inside, #delete-order-item-inside").each(function () {
-                $(this).modalForm({
-                    formURL: $(this).data('form-url')
-                });
+                columns: [
+                    {data: "id"},
+                    {
+                        data: null,
+                        orderable: false,
+                        render: function (data, type, row) {
+                            return '<button type="button" id="update-order-item-inside" class="bs-modal btn btn-sm btn-primary" data-toggle="modal" data-form-url="{% url "update-order-item" "0" %}"><span>Değiştir</span></button>'.replace('0', row['id']) +
+                                '<button type="button" id="delete-order-item-inside" class="bs-modal btn btn-sm btn-danger" data-toggle="modal" data-form-url="{% url "delete-order-item" "0" %}"><span>Sil</span></button>'.replace('0', row['id']);
+                        }
+                    },
+                    {data: "order"},
+                    {data: "product"},
+                    {data: "quantity"},
+                    {data: "package_count"},
+                    {data: "list_price"},
+                    {data: "total_amount"},
+                    {data: "total_amount_with_vat"},
+                ]
             });
-        }
 
-        {#$(".return-order").onlick(#}
-        {#    window.location.href='{% url "list-order-item" "0" %}'.replace('0', order_id)#}
-        {#);#}
+            {#$('.dataTables_length select').select2({minimumResultsForSearch: Infinity, width: ''});#}
 
-        //$(".bs-modal").each(function () {
-        //    $(this).modalForm({
-        //        formURL: $(this).data('form-url')
-        //    });
-        //});
+            $(".create-order-item").modalForm({
+                formURL: "{% url 'create-order-item' %}"
+            });
 
-    });
+            $(".update-order").modalForm({
+                formURL: "{% url 'update-order' 0 %}".replace(0, order_id)
+            });
+
+            function populateButtonModals() {
+                // Todo: event listener didn't work at first time, so after ajax complete,
+                //  this function handles modals, not sure if its healthy
+                $("#update-order-item-inside, #delete-order-item-inside").each(function () {
+                    $(this).modalForm({
+                        formURL: $(this).data('form-url')
+                    });
+                });
+            }
+
+            {#$(".return-order").onlick(#}
+            {#    window.location.href='{% url "list-order-item" "0" %}'.replace('0', order_id)#}
+            {#);#}
+
+            //$(".bs-modal").each(function () {
+            //    $(this).modalForm({
+            //        formURL: $(this).data('form-url')
+            //    });
+            //});
+
+        });
 
 
-</script>
+    </script>
 
 {% endblock %}

@@ -10,7 +10,7 @@ import openpyxl
 
 from django.core.management.base import BaseCommand
 
-from address.models import Country, City, Township, District
+from address.models import Country, City
 from address.get_countries import RestCountryApi
 
 
@@ -28,7 +28,7 @@ class Command(BaseCommand):
         normalize = {}
 
         for x in sheet.iter_rows(min_row=2):
-            #row = list(sheet.iter_rows())[x]
+            # row = list(sheet.iter_rows())[x]
             # excel file columns
             # city, township, district, neighborhood, postal_code
             try:
@@ -73,11 +73,11 @@ class Command(BaseCommand):
             city, x = City.objects.get_or_create(name=d, country=country)
             print("city --> ", d)
             # for t in data[d]:
-                # print "township --> ", t
-                # township, x = Township.objects.get_or_create(name=t, city=city)
-                # for di in data[d][t]:
-                    # print "district --> ", di
-                    # district, x = District.objects.get_or_create(name=di, township=township)
+            # print "township --> ", t
+            # township, x = Township.objects.get_or_create(name=t, city=city)
+            # for di in data[d][t]:
+            # print "district --> ", di
+            # district, x = District.objects.get_or_create(name=di, township=township)
 
         return True
 
@@ -86,6 +86,6 @@ class Command(BaseCommand):
         rca.insert()
 
         base_path = os.path.dirname(os.path.abspath(__file__))
-        path = base_path+"/pk_list.xlsx"
+        path = base_path + "/pk_list.xlsx"
 
         self.insert(path)

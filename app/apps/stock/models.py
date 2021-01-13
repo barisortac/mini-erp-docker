@@ -13,6 +13,5 @@ class Stock(CoreModel):
     stock_quantity = models.IntegerField(default=0, verbose_name="Stok Miktarı")
     base_cost = models.FloatField(default=0, verbose_name="Ürün Tipi")
 
-
     def __str__(self):
         return f"{self.product.name} - {self.number}"

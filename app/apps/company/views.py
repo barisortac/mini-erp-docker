@@ -427,17 +427,17 @@ from bootstrap_modal_forms.generic import (
     BSModalReadView,
     BSModalDeleteView
 )
+from dal import autocomplete
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django_datatables_view.base_datatable_view import BaseDatatableView
 from django.views import generic
+from django_datatables_view.base_datatable_view import BaseDatatableView
 
 from company.models import Company, TaxOffice
 from .forms import CompanyModelForm, TaxOfficeModelForm
 
-from dal import autocomplete
 
 @login_required
 def company_list(request):
@@ -477,7 +477,6 @@ class CompanyListJson(BaseDatatableView):
                 qs = qs.filter(q)
 
         return qs
-
 
     def render_column(self, row, column):
         # We want to render user as a custom column
@@ -591,7 +590,3 @@ class TaxOfficeAutocomplete(autocomplete.Select2QuerySetView):
         return qs
 
 ################ TAX OFFICE #####################
-
-
-
-

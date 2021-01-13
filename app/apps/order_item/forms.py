@@ -1,5 +1,7 @@
-from .models import OrderItem
 from bootstrap_modal_forms.forms import BSModalModelForm
+
+from .models import OrderItem
+
 
 class OrderItemModelForm(BSModalModelForm):
     class Meta:

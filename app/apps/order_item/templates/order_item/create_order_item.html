@@ -1,11 +1,12 @@
 {% load widget_tweaks %}
 {% load static %}
+{% load i18n %}
 
 <form method="post" action="">
     {% csrf_token %}
 
     <div class="modal-header">
-        <h5 class="modal-title">Sipariş Kalemi Ekle</h5>
+        <h5 class="modal-title">{% trans "Create Order Item" %}</h5>
         <button type="button" class="close" data-dismiss="modal"
                 aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -32,9 +33,10 @@
 
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">
-            Kapat
+            {% trans "Close" %}
         </button>
-        <button type="button" class="submit-btn btn btn-primary">Oluştur
+        <button type="button" class="submit-btn btn btn-primary">
+            {% trans "Create" %}
         </button>
     </div>
 </form>

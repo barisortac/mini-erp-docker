@@ -3,7 +3,6 @@ from datetime import datetime
 from bootstrap_modal_forms.generic import (
     BSModalCreateView,
     BSModalUpdateView,
-    BSModalReadView,
     BSModalDeleteView
 )
 from django.contrib.auth.decorators import login_required
@@ -11,12 +10,12 @@ from django.core.exceptions import ImproperlyConfigured
 from django.db.models import Q
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django_datatables_view.base_datatable_view import BaseDatatableView
 from django.views import generic
+from django_datatables_view.base_datatable_view import BaseDatatableView
 
 from order.models import Order
-from .models import OrderItem
 from .forms import OrderItemModelForm
+from .models import OrderItem
 
 
 @login_required
@@ -36,29 +35,30 @@ def order_item_list(request, pk=None):
 class OrderItemListJson(BaseDatatableView):
     model = OrderItem
     columns = [
-            "id"
-            "order",
-            "product",
-            "quantity",
-            "package_count",
-            "list_price",
-            "total_amount",
-            "total_amount_with_vat",
-        ]
+        "id"
+        "order",
+        "product",
+        "quantity",
+        "package_count",
+        "list_price",
+        "total_amount",
+        "total_amount_with_vat",
+    ]
     order_columns = [
-            "id"
-            "order",
-            "product",
-            "quantity",
-            "package_count",
-            "list_price",
-            "total_amount",
-            "total_amount_with_vat",
-        ]
+        "id"
+        "order",
+        "product",
+        "quantity",
+        "package_count",
+        "list_price",
+        "total_amount",
+        "total_amount_with_vat",
+    ]
 
     def get_initial_queryset(self):
         if not self.model:
-            raise NotImplementedError("Need to provide a model or implement get_initial_queryset!")
+            raise NotImplementedError(
+                "Need to provide a model or implement get_initial_queryset!")
 
         initial_queryset = self.model.objects
 
@@ -137,7 +137,6 @@ class OrderItemUpdateView(BSModalUpdateView):
 
     def get_success_url(self):
         return get_success_url_overwrite(self=self)
-
 
 
 class OrderItemDeleteView(BSModalDeleteView):

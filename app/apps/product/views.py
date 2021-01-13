@@ -11,17 +11,17 @@ from django.db.models import Q
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django_datatables_view.base_datatable_view import BaseDatatableView
 from django.views import generic
+from django_datatables_view.base_datatable_view import BaseDatatableView
 
-
-from .models import Product, ProductType
 from .forms import ProductModelForm, ProductTypeModelForm
+from .models import Product, ProductType
 
 
 @login_required
 def product_list(request):
     return render(request, 'product/list_product.html')
+
 
 @login_required
 def get_product(request, pk=None):
@@ -31,8 +31,11 @@ def get_product(request, pk=None):
 
 class ProductListJson(BaseDatatableView):
     model = Product
-    columns = ["id", "name", "description", "package_unit", "product_type", "buying_price", "selling_price", "vat_rate"]
-    order_columns = ["id", "name", "description", "package_unit", "product_type", "buying_price", "selling_price", "vat_rate"]
+    columns = ["id", "name", "description", "package_unit", "product_type",
+               "buying_price", "selling_price", "vat_rate"]
+    order_columns = ["id", "name", "description", "package_unit",
+                     "product_type", "buying_price", "selling_price",
+                     "vat_rate"]
 
     def filter_queryset(self, qs):
         sSearch = self.request.GET.get('search[value]', None)

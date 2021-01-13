@@ -2,11 +2,11 @@ from django.db import models
 
 # Create your models here.
 from core.enums import PaymentTypeEnum
-from core.models import CoreModel, CoreEnum
+from core.models import CoreModel
 
 
 class TaxOffice(CoreModel):
-    name = models.CharField(max_length=128,verbose_name="Vergi Dairesi")
+    name = models.CharField(max_length=128, verbose_name="Vergi Dairesi")
 
     def __str__(self):
         return f"{self.id} - {self.name}"
@@ -14,8 +14,9 @@ class TaxOffice(CoreModel):
 
 class Company(CoreModel):
     name = models.CharField(max_length=128, verbose_name="Firma Adı")
-    code = models.CharField(max_length=64, null=True, blank=True,verbose_name="Cari Kodu", unique=True)
-    #customer = models.ForeignKey('customer.Customer', on_delete=models.PROTECT,verbose_name=_t('Customer'))
+    code = models.CharField(max_length=64, null=True, blank=True,
+                            verbose_name="Cari Kodu", unique=True)
+    # customer = models.ForeignKey('customer.Customer', on_delete=models.PROTECT,verbose_name=_t('Customer'))
     city = models.ForeignKey(
         "address.City", default=None,
         on_delete=models.PROTECT,
@@ -34,8 +35,10 @@ class Company(CoreModel):
         null=True, blank=True,
         verbose_name="Vergi Dairesi"
     )
-    tax_number = models.IntegerField(null=True, blank=True, verbose_name="Vergi Numarası", unique=True)
-    phone = models.CharField(max_length=32, null=True, blank=True, verbose_name='Telefon Numarası')
+    tax_number = models.IntegerField(null=True, blank=True,
+                                     verbose_name="Vergi Numarası", unique=True)
+    phone = models.CharField(max_length=32, null=True, blank=True,
+                             verbose_name='Telefon Numarası')
     payment_type = models.CharField(
         max_length=32, verbose_name='Ödeme Şekli',
         choices=PaymentTypeEnum.choose_list(),

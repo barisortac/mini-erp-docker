@@ -1,10 +1,10 @@
-import traceback
 import sys
+import traceback
 
+from apps.integration.services.sap.sap import SAP
 from django.core.management.base import BaseCommand
 from sentry_sdk import capture_exception
 
-from apps.integration.services.sap.sap import SAP
 from address.models import Township
 
 
@@ -14,9 +14,11 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         try:
             sap = SAP()
-            sap_location_list = sap.get_location_info_crm()['EXPORT']['ES_OUTPUT']
-            city_list = {i['BEZEI']:i for i in sap_location_list['REGION']}
-            township_list = [i for i in sap_location_list['CITY_NO'] if i['COUNTRY']=='TR']
+            sap_location_list = sap.get_location_info_crm()['EXPORT'][
+                'ES_OUTPUT']
+            city_list = {i['BEZEI']: i for i in sap_location_list['REGION']}
+            township_list = [i for i in sap_location_list['CITY_NO'] if
+                             i['COUNTRY'] == 'TR']
             for t in Township.objects.all():
                 city = t.city
                 c_name = _c_name = city.name
@@ -36,8 +38,11 @@ class Command(BaseCommand):
                 else:
                     continue
 
-                sap_township = [i for i in township_list if i['REGION']==str(city.data['sap_no']) and i['CITY_NAME']==t.name.replace("i", "İ").upper()]
-                if sap_township and len(sap_township)==1:
+                sap_township = [i for i in township_list if
+                                i['REGION'] == str(city.data['sap_no']) and i[
+                                    'CITY_NAME'] == t.name.replace("i",
+                                                                   "İ").upper()]
+                if sap_township and len(sap_township) == 1:
                     township = sap_township[0]
                     sap_no = township['CITY_CODE']
                     if not t.data:
@@ -46,8 +51,10 @@ class Command(BaseCommand):
                     t.save(get_poly=False)
                     print(f"Township güncellendi, {t.name}")
                 else:
-                    print(f"Birden fazla (ya da 0) sonuç bulunduğu için güncellenemedi-> {t.name}")
+                    print(
+                        f"Birden fazla (ya da 0) sonuç bulunduğu için güncellenemedi-> {t.name}")
 
         except Exception as e:
             capture_exception(e)
-            self.stdout.write('\n'.join(traceback.format_exception(*(sys.exc_info()))))
+            self.stdout.write(
+                '\n'.join(traceback.format_exception(*(sys.exc_info()))))

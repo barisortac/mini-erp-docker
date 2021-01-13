@@ -1,14 +1,10 @@
-import argparse
-import sys
 import os
 from osgeo import ogr
-from osgeo import osr
-import anyjson
-import shapely.geometry
-import shapely.ops
-import codecs
 import time
 
+import shapely.geometry
+import shapely.ops
+from osgeo import ogr
 
 format = '%.8f %.8f'
 tolerance = 0.01

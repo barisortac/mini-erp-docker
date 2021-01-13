@@ -1,5 +1,7 @@
-from .models import Product, ProductType
 from bootstrap_modal_forms.forms import BSModalModelForm
+
+from .models import Product, ProductType
+
 
 class ProductModelForm(BSModalModelForm):
     class Meta:

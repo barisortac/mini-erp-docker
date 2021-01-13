@@ -1,8 +1,9 @@
+from bootstrap_modal_forms.forms import BSModalModelForm
 from dal import autocomplete
 from django import forms
 
 from .models import Company, TaxOffice
-from bootstrap_modal_forms.forms import BSModalModelForm
+
 
 class CompanyModelForm(BSModalModelForm):
     def __init__(self, *args, **kwargs):
@@ -30,11 +31,10 @@ class CompanyModelForm(BSModalModelForm):
             "city",
         ]
 
-class TaxOfficeModelForm(BSModalModelForm):
 
+class TaxOfficeModelForm(BSModalModelForm):
     class Meta:
         model = TaxOffice
         fields = [
             "name",
         ]
-

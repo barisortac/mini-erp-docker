@@ -1,17 +1,16 @@
-import sys
-import json
+import copy
 import csv
-import shapely.wkb
+import json
+import os
+import sys
+
 import shapely.geometry
 import shapely.ops
-import codecs
-import os
-import inspect
-import copy
+import shapely.wkb
+from booleano.operations import Variable
+from booleano.parser import Grammar, EvaluableParseManager, SymbolTable, Bind
 from osgeo import ogr
 from osgeo import osr
-from booleano.parser import Grammar, EvaluableParseManager, SymbolTable, Bind
-from booleano.operations import Variable
 
 
 class Map:

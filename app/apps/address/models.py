@@ -1,13 +1,13 @@
-import requests
-
 from django.db import models
 # from django.contrib.gis.db import models as gis_models
 # from django.contrib.gis.db.models.fields import PointField
 # from django.contrib.gis.geos import Point
 from django.utils.translation import ugettext_lazy as _t
-# from django.contrib.gis.geos import Polygon
 
 from core.models import CoreModel
+
+
+# from django.contrib.gis.geos import Polygon
 
 
 class Country(CoreModel):
@@ -59,7 +59,7 @@ class City(CoreModel):
     country = models.ForeignKey(
         'Country', on_delete=models.PROTECT, verbose_name=_t('Country'))
 
-    # is_active = models.BooleanField(default=True, verbose_name=_t('Is Active'))
+    #  is_active = models.BooleanField(default=True, verbose_name=_t('Is Active'))
     slot = models.IntegerField(default=1, verbose_name=_t('Slot'))
     use_in = models.BooleanField(default=False, verbose_name=_t('Use In'))
 
@@ -104,7 +104,7 @@ class Township(CoreModel):
         'City', on_delete=models.PROTECT, verbose_name=_t('City'))
     name = models.CharField(max_length=128, verbose_name=_t('Name'))
 
-    # is_active = models.BooleanField(default=True, verbose_name=_t('Is Active'))
+    #  is_active = models.BooleanField(default=True, verbose_name=_t('Is Active'))
     # poly = gis_models.GeometryField(null=True, blank=True, spatial_index=True)
 
     CACHE_KEY = 'tw'
@@ -223,10 +223,11 @@ class Township(CoreModel):
 class District(CoreModel):
     CACHE_KEY = "district"
 
-    township = models.ForeignKey('Township', on_delete=models.PROTECT, verbose_name=_t('Township'))
+    township = models.ForeignKey('Township', on_delete=models.PROTECT,
+                                 verbose_name=_t('Township'))
     name = models.CharField(max_length=128, verbose_name=_t('Name'))
 
-    # is_active = models.BooleanField(default=True, verbose_name=_t('Is Active'))
+    #  is_active = models.BooleanField(default=True, verbose_name=_t('Is Active'))
     # poly = gis_models.GeometryField(null=True, spatial_index=True, blank=True)
 
     CACHE_KEY = 'dt'
@@ -268,7 +269,8 @@ class District(CoreModel):
         else:
             data = []
 
-        for c in District.objects.filter(is_active=True, township_id=township_id):
+        for c in District.objects.filter(is_active=True,
+                                         township_id=township_id):
             data.append(c._json())
 
         District._set_cache(District.CACHE_KEY_BULK + township_id, data)
@@ -283,36 +285,49 @@ class District(CoreModel):
 class Address(CoreModel):
     CACHE_KEY = "adress"
 
-    address_title = models.CharField(max_length=512, verbose_name=_t('Address Title'))
+    address_title = models.CharField(max_length=512,
+                                     verbose_name=_t('Address Title'))
     address = models.TextField()
     # address2 = models.TextField(blank=True, null=True)
     state = models.ForeignKey(
-        State, on_delete=models.PROTECT, null=True, blank=True, verbose_name=_t('State'))
+        State, on_delete=models.PROTECT, null=True, blank=True,
+        verbose_name=_t('State'))
     city = models.ForeignKey(
         'City', on_delete=models.PROTECT, verbose_name=_t('City')
     )
-    township = models.ForeignKey('Township', on_delete=models.PROTECT, verbose_name=_t('Township'))
+    township = models.ForeignKey('Township', on_delete=models.PROTECT,
+                                 verbose_name=_t('Township'))
     district = models.ForeignKey(
-        'District', null=True, blank=True, on_delete=models.PROTECT, verbose_name=_t('District'))
-    postal_code = models.CharField(max_length=10, blank=True, null=True, verbose_name=_t('Postal Code'))
-    phone = models.CharField(max_length=32, verbose_name=_t('Phone'), help_text=u'Örn: 5301234567')
+        'District', null=True, blank=True, on_delete=models.PROTECT,
+        verbose_name=_t('District'))
+    postal_code = models.CharField(max_length=10, blank=True, null=True,
+                                   verbose_name=_t('Postal Code'))
+    phone = models.CharField(max_length=32, verbose_name=_t('Phone'),
+                             help_text=u'Örn: 5301234567')
     # dahili
     internal = models.CharField(
         max_length=64, verbose_name=u'Dahili', null=True, blank=True, )
     fax = models.CharField(
-        max_length=64, help_text=u'Örn: 2122454545', null=True, blank=True, verbose_name=_t('Fax'))
+        max_length=64, help_text=u'Örn: 2122454545', null=True, blank=True,
+        verbose_name=_t('Fax'))
 
     #  first_name = models.CharField(max_length=100, null=True, blank=True)
     #  last_name = models.CharField(max_length=100, null=True, blank=True)
-    name = models.CharField(max_length=256, null=True, blank=True, verbose_name=_t('Name'))
-    identity_number = models.CharField(max_length=64, null=True, blank=True, verbose_name=_t('Identity Number'))
+    name = models.CharField(max_length=256, null=True, blank=True,
+                            verbose_name=_t('Name'))
+    identity_number = models.CharField(max_length=64, null=True, blank=True,
+                                       verbose_name=_t('Identity Number'))
 
-    tax_no = models.CharField(max_length=256, null=True, blank=True, verbose_name=_t('Tax No'))
-    tax_office = models.CharField(max_length=256, null=True, blank=True, verbose_name=_t('Tax Office'))
+    tax_no = models.CharField(max_length=256, null=True, blank=True,
+                              verbose_name=_t('Tax No'))
+    tax_office = models.CharField(max_length=256, null=True, blank=True,
+                                  verbose_name=_t('Tax Office'))
     # geom = PointField(null=True, blank=True, verbose_name=_t('Geom'))
 
-    is_cancelled = models.BooleanField(default=False, verbose_name=_t('Is Cancelled'))
-    cancelled_at = models.DateTimeField(null=True, blank=True, verbose_name=_t('Cancelled At'))
+    is_cancelled = models.BooleanField(default=False,
+                                       verbose_name=_t('Is Cancelled'))
+    cancelled_at = models.DateTimeField(null=True, blank=True,
+                                        verbose_name=_t('Cancelled At'))
 
     def __unicode__(self):
         return u' %s - %s' % (self.id, self.address_title)
@@ -321,7 +336,8 @@ class Address(CoreModel):
         return self.address_title
 
     def get_address(self):
-        return u'%s %s %s %s ' % (self.address, self.postal_code or '', self.township, self.city)
+        return u'%s %s %s %s ' % (
+        self.address, self.postal_code or '', self.township, self.city)
 
     def _json(self):
         return self._asdict()
@@ -402,5 +418,6 @@ class Address(CoreModel):
         if self.fax:
             html += 'Fax: %s ' % self.fax
         if self.city:
-            html += '%s / %s ' % (self.township.name if self.township else '', self.city.name)
+            html += '%s / %s ' % (
+            self.township.name if self.township else '', self.city.name)
         return html

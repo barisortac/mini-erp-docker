@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from .models import (
     Country,
     State,
@@ -64,8 +65,8 @@ class DistrictAdmin(admin.ModelAdmin):
 
 class AddressAdmin(admin.ModelAdmin):
     list_display = [
-        # 'first_name',
-        # 'last_name',
+        #  'first_name',
+        #  'last_name',
         'name',
         'address_title',
         'address',

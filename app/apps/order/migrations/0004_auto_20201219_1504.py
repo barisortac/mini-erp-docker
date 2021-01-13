@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('order', '0003_auto_20201206_2209'),
     ]
@@ -13,6 +12,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='order',
             name='payment_type',
-            field=models.CharField(blank=True, choices=[['Nakit', 'Nakit'], ['Çek', 'Çek'], ['Kredi Kartı', 'Kredi kartı'], ['Açık Hesap', 'Açık hesap']], max_length=32, null=True, verbose_name='Tahsilat Türü'),
+            field=models.CharField(blank=True,
+                                   choices=[['Nakit', 'Nakit'], ['Çek', 'Çek'],
+                                            ['Kredi Kartı', 'Kredi kartı'],
+                                            ['Açık Hesap', 'Açık hesap']],
+                                   max_length=32, null=True,
+                                   verbose_name='Tahsilat Türü'),
         ),
     ]

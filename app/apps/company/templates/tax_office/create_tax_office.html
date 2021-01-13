@@ -1,28 +1,28 @@
 <form method="post" action="">
-  {% csrf_token %}
+    {% csrf_token %}
 
- <div class="modal-header">
-    <h5 class="modal-title">Vergi Dairesi Oluştur</h5>
-    <a class="close" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </a>
-  </div>
+    <div class="modal-header">
+        <h5 class="modal-title">Vergi Dairesi Oluştur</h5>
+        <a class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </a>
+    </div>
 
-  <div class="modal-body">
-    {% for field in form %}
-      <div class="form-group{% if field.errors %} invalid{% endif %}">
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-        {{ field }}
-        {% for error in field.errors %}
-          <p class="help-block">{{ error }}</p>
+    <div class="modal-body">
+        {% for field in form %}
+            <div class="form-group{% if field.errors %} invalid{% endif %}">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% for error in field.errors %}
+                    <p class="help-block">{{ error }}</p>
+                {% endfor %}
+            </div>
         {% endfor %}
-      </div>
-    {% endfor %}
-  </div>
+    </div>
 
-  <div class="modal-footer">
-    <a class="btn btn-default" data-dismiss="modal">Kapat</a>
-    <a class="submit-btn btn btn-primary">Oluştur</a>
-  </div>
+    <div class="modal-footer">
+        <a class="btn btn-default" data-dismiss="modal">Kapat</a>
+        <a class="submit-btn btn btn-primary">Oluştur</a>
+    </div>
 
 </form>

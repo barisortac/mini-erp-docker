@@ -1,10 +1,11 @@
 {% load widget_tweaks %}
+{% load i18n %}
 
 <form method="post" action="">
     {% csrf_token %}
 
     <div class="modal-header">
-        <h3 class="modal-title">Sipariş Güncelle</h3>
+        <h3 class="modal-title">{% trans "Update Order" %}</h3>
         <button type="button" class="close" data-dismiss="modal"
                 aria-label="Close">
             <span aria-hidden="true">&times;</span>

@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('order', '0002_auto_20201206_1659'),
     ]
@@ -13,11 +12,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='order',
             name='total_package_count',
-            field=models.FloatField(default=0, verbose_name='Toplam Paket Sayısı'),
+            field=models.FloatField(default=0,
+                                    verbose_name='Toplam Paket Sayısı'),
         ),
         migrations.AddField(
             model_name='order',
             name='total_quantity',
-            field=models.FloatField(default=0, verbose_name='Toplam Sipariş Sayısı'),
+            field=models.FloatField(default=0,
+                                    verbose_name='Toplam Sipariş Sayısı'),
         ),
     ]
