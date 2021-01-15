@@ -17,17 +17,17 @@
                     <div class="card">
                         <!-- Card header -->
                         <div class="card-header">
-                            <h2 class="mb-0">Vergi Daireleri</h2>
+                            <h2 class="mb-0">{% trans "Tax Offices" %}</h2>
                         </div>
                         <div class="table-responsive py-4">
                             <table class="table table-flush"
                                    id="datatable-basic">
                                 <thead class="thead-light">
                                 <tr>
-                                    <th>ID</th>
-                                    <th>İsim</th>
-                                    <th>Oluşturulma Tarihi</th>
-                                    <th>Değiştir / Sil</th>
+                                    <th>{% trans "ID" %}</th>
+                                    <th>{% trans "Name" %}</th>
+                                    <th>{% trans "Created At" %}</th>
+                                    <th>{% trans "Update" %} / {% trans "Remove" %}</th>
                                 </tr>
                                 </thead>
                             </table>
@@ -38,22 +38,6 @@
         </div>
     </div>
 
-    {#    {% for c in company_list %}#}
-    {#    <div class="text-center">#}
-    {#      <!-- Read book buttons -->#}
-    {#      <button type="button" id="read-book" class="bs-modal btn btn-sm btn-primary" data-form-url="{% url 'read-company' c.pk %}">#}
-    {#        <span class="fa fa-eye">{{ c.name }}</span>#}
-    {#      </button>#}
-    {#      <!-- Update book buttons -->#}
-    {#      <button type="button" id="update-booksdsd" class="bs-modal btn btn-sm btn-primary" data-form-url="{% url 'update-company' c.pk %}">#}
-    {#        <span class="fa fa-pencil">Güncelle {{ c.name }}</span>#}
-    {#      </button>#}
-    {#      <!-- Delete book buttons -->#}
-    {#      <button type="button" id="delete-book" class="bs-modal btn btn-sm btn-danger" data-form-url="{% url 'delete-company' c.pk %}">#}
-    {#        <span class="fa fa-trash">{{ c.name }}</span>#}
-    {#      </button>#}
-    {#    </div>#}
-    {#    {% endfor %}#}
 {% endblock %}
 
 {% block javascripts %}
@@ -78,7 +62,7 @@
                 buttons: [
                     {
                         className: 'create-tax-office',
-                        text: 'Yeni Vergi Dairesi',
+                        text: '{% trans "Create Tax Office" %}',
                     },
                     "copy", "csv",
                 ],
@@ -109,15 +93,14 @@
                         data: null,
                         orderable: false,
                         render: function (data, type, row) {
-                            return '<button type="button" id="update-tax-office-inside" class="bs-modal btn btn-sm btn-primary" data-toggle="modal" data-form-url="{% url "update-tax-office" "0" %}"><span>Değiştir</span></button>'.replace('0', row['id']) +
-                                '<button type="button" id="delete-tax-office-inside" class="bs-modal btn btn-sm btn-danger" data-toggle="modal" data-form-url="{% url "delete-tax-office" "0" %}"><span>Sil</span></button>'.replace('0', row['id']);
+                            return '<button type="button" id="update-tax-office-inside" class="bs-modal btn btn-sm btn-primary" data-toggle="modal" data-form-url="{% url "update-tax-office" "0" %}"><span>{% trans "Update" %}</span></button>'.replace('0', row['id']) +
+                                '<button type="button" id="delete-tax-office-inside" class="bs-modal btn btn-sm btn-danger" data-toggle="modal" data-form-url="{% url "delete-tax-office" "0" %}"><span>{% trans "Remove" %}</span></button>'.replace('0', row['id']);
                         }
                     }
                 ]
             });
 
             {#$('.dataTables_length select').select2({minimumResultsForSearch: Infinity, width: ''});#}
-
 
             $(".create-tax-office").modalForm({
                 formURL: "{% url 'create-tax-office' %}",

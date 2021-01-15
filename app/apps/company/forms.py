@@ -1,6 +1,7 @@
 from bootstrap_modal_forms.forms import BSModalModelForm
 from dal import autocomplete
 from django import forms
+from django.utils.translation import ugettext as _t
 
 from .models import Company, TaxOffice
 
@@ -11,7 +12,7 @@ class CompanyModelForm(BSModalModelForm):
 
         self.fields["tax_office"] = forms.ModelChoiceField(
             queryset=TaxOffice.objects.all(),
-            label="Vergi Dairesi",
+            label=_t("Tax Office"),
             required=False,
             widget=autocomplete.ModelSelect2(
                 url='tax-office-autocomplete',

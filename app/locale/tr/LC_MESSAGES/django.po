@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-02 12:47+0300\n"
+"POT-Creation-Date: 2021-01-14 19:14+0300\n"
 "PO-Revision-Date: 2021-01-02 12:46+0156\n"
 "Last-Translator: b'  <test@test.copm>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,6 +28,9 @@ msgid "Address"
 msgstr "Adres"
 
 #: apps/address/templates/address_list.html:28
+#: apps/company/templates/company/list_company.html:27
+#: apps/company/templates/company/list_company.html:49
+#: apps/company/templates/company/list_company.html:177
 msgid "City"
 msgstr "Şehir"
 
@@ -60,66 +63,283 @@ msgid "Tax No"
 msgstr "Vergi No"
 
 #: apps/address/templates/address_list.html:36
+#: apps/company/templates/company/list_company.html:45
 msgid "Tax Office"
 msgstr "Vergi Dairesi"
 
-#: apps/address/templates/address_list.html:88
+#: apps/address/templates/address_list.html:93
 msgid "Add Address"
 msgstr ""
 
-#: apps/company/templates/company/list_company.html:21
+#: apps/company/templates/company/list_company.html:20
 #: core/templates/includes/sidenav.html:72
+#: core/templates/includes/sidenav.html:78
 msgid "Companies"
 msgstr "Firmalar"
 
-#: apps/product/templates/product/list_product.html:19
+#: apps/company/templates/company/list_company.html:41
+#: apps/order/templates/order/list_order.html:28
+#: apps/order_item/templates/order_item/list_order_item.html:76
+#: apps/product/templates/product/list_product.html:25
+#: apps/product/templates/product_type/list_product_type.html:26
+msgid "ID"
+msgstr "ID"
+
+#: apps/company/templates/company/list_company.html:42
+#: apps/company/templates/company/list_company.html:137
+#: apps/order/templates/order/list_order.html:30
+#: apps/order/templates/order/list_order.html:113
+#: apps/order_item/templates/order_item/list_order_item.html:77
+#: apps/product/templates/product/list_product.html:26
+#: apps/product/templates/product/list_product.html:96
+#, fuzzy
+#| msgid "Updated At"
+msgid "Update"
+msgstr "Güncelleme Zamanı"
+
+#: apps/company/templates/company/list_company.html:42
+#: apps/company/templates/company/list_company.html:138
+#: apps/order/templates/order/list_order.html:30
+#: apps/order/templates/order/list_order.html:114
+#: venv_docker_resan/lib/python3.9/site-packages/django/forms/formsets.py:391
+msgid "Delete"
+msgstr ""
+
+#: apps/company/templates/company/list_company.html:43
+#: apps/product/templates/product/list_product.html:27
+#: apps/product/templates/product_type/list_product_type.html:27
+msgid "Name"
+msgstr "Ad"
+
+#: apps/company/templates/company/list_company.html:44
+#, fuzzy
+#| msgid "Postal Code"
+msgid "Account Code"
+msgstr "Posta Kodu"
+
+#: apps/company/templates/company/list_company.html:46
+#, fuzzy
+#| msgid "Tax No"
+msgid "Tax Number"
+msgstr "Vergi No"
+
+#: apps/company/templates/company/list_company.html:47
+msgid "Tel Number"
+msgstr ""
+
+#: apps/company/templates/company/list_company.html:48
+#: apps/order/templates/order/list_order.html:36
+#: apps/order_item/templates/order_item/list_order_item.html:35
+msgid "Payment Type"
+msgstr ""
+
+#: apps/company/templates/company/list_company.html:103
+#, fuzzy
+#| msgid "Companies"
+msgid "New Company"
+msgstr "Firmalar"
+
+#: apps/company/templates/company/list_company.html:107
+msgid "Filter"
+msgstr ""
+
+#: apps/order/templates/order/create_order.html:9
+#, fuzzy
+#| msgid "Created At"
+msgid "Create Order"
+msgstr "Oluşma Zamanı"
+
+#: apps/order/templates/order/create_order.html:37
+#: apps/order_item/templates/order_item/create_order_item.html:36
+msgid "Close"
+msgstr ""
+
+#: apps/order/templates/order/create_order.html:40
+#: apps/order_item/templates/order_item/create_order_item.html:39
+#, fuzzy
+#| msgid "Created At"
+msgid "Create"
+msgstr "Oluşma Zamanı"
+
+#: apps/order/templates/order/list_order.html:21
+#: core/templates/includes/sidenav.html:116
+#: core/templates/includes/sidenav.html:122
+msgid "Orders"
+msgstr "Siparişler"
+
+#: apps/order/templates/order/list_order.html:29
+#: apps/order/templates/order/list_order.html:106
+msgid "Detail"
+msgstr ""
+
+#: apps/order/templates/order/list_order.html:31
+#: apps/order_item/templates/order_item/list_order_item.html:33
+#, fuzzy
+#| msgid "Order Items"
+msgid "Order Date"
+msgstr "Sipariş Kalemleri"
+
+#: apps/order/templates/order/list_order.html:32
+#: apps/order_item/templates/order_item/list_order_item.html:32
+#, fuzzy
+#| msgid "Companies"
+msgid "Company"
+msgstr "Firmalar"
+
+#: apps/order/templates/order/list_order.html:33
+#: apps/order_item/templates/order_item/list_order_item.html:40
+msgid "Total Quantity"
+msgstr ""
+
+#: apps/order/templates/order/list_order.html:34
+#: apps/order_item/templates/order_item/list_order_item.html:41
+#, fuzzy
+#| msgid "Package Unit"
+msgid "Total Package Count"
+msgstr "Ambalaj Birimi"
+
+#: apps/order/templates/order/list_order.html:35
+#: apps/order_item/templates/order_item/list_order_item.html:34
+msgid "Deliver Date"
+msgstr ""
+
+#: apps/order/templates/order/list_order.html:37
+#: apps/order_item/templates/order_item/list_order_item.html:36
+#, fuzzy
+#| msgid "Order Items"
+msgid "Order Type"
+msgstr "Sipariş Kalemleri"
+
+#: apps/order/templates/order/list_order.html:38
+#, fuzzy
+#| msgid "Order Items"
+msgid "Order Status"
+msgstr "Sipariş Kalemleri"
+
+#: apps/order/templates/order/list_order.html:39
+#: apps/order_item/templates/order_item/list_order_item.html:42
+#: apps/order_item/templates/order_item/list_order_item.html:83
+msgid "Total Amount"
+msgstr ""
+
+#: apps/order/templates/order/list_order.html:40
+#: apps/order_item/templates/order_item/list_order_item.html:43
+#: apps/order_item/templates/order_item/list_order_item.html:84
+msgid "Total Amount with VAT"
+msgstr ""
+
+#: apps/order/templates/order/list_order.html:41
+#: apps/order_item/templates/order_item/list_order_item.html:38
+msgid "Discount"
+msgstr ""
+
+#: apps/order/templates/order/list_order.html:42
+#: apps/order_item/templates/order_item/list_order_item.html:39
+msgid "Additional Discount"
+msgstr ""
+
+#: apps/order/templates/order/list_order.html:43
+msgid "Note"
+msgstr ""
+
+#: apps/order/templates/order/list_order.html:77
+msgid "Create Order Template"
+msgstr ""
+
+#: apps/order/templates/order/update_order.html:8
+#, fuzzy
+#| msgid "Updated At"
+msgid "Update Order"
+msgstr "Güncelleme Zamanı"
+
+#: apps/order_item/templates/order_item/create_order_item.html:9
+#: apps/order_item/templates/order_item/list_order_item.html:118
+#, fuzzy
+#| msgid "Order Items"
+msgid "Create Order Item"
+msgstr "Sipariş Kalemleri"
+
+#: apps/order_item/templates/order_item/list_order_item.html:24
+#: core/templates/includes/sidenav.html:130
+msgid "Order Items"
+msgstr "Sipariş Kalemleri"
+
+#: apps/order_item/templates/order_item/list_order_item.html:37
+msgid "Status"
+msgstr ""
+
+#: apps/order_item/templates/order_item/list_order_item.html:77
+#: apps/product/templates/product/list_product.html:26
+#: apps/product/templates/product/list_product.html:97
+#: apps/product/templates/product_type/list_product_type.html:29
+msgid "Remove"
+msgstr "Sil"
+
+#: apps/order_item/templates/order_item/list_order_item.html:78
+#: venv_docker_resan/lib/python3.9/site-packages/django/forms/formsets.py:379
+#: venv_docker_resan/lib/python3.9/site-packages/django/forms/formsets.py:386
+msgid "Order"
+msgstr ""
+
+#: apps/order_item/templates/order_item/list_order_item.html:79
+#, fuzzy
+#| msgid "Products"
+msgid "Product"
+msgstr "Ürünler"
+
+#: apps/order_item/templates/order_item/list_order_item.html:80
+msgid "Quantity"
+msgstr ""
+
+#: apps/order_item/templates/order_item/list_order_item.html:81
+#, fuzzy
+#| msgid "Package Unit"
+msgid "Package Quantity"
+msgstr "Ambalaj Birimi"
+
+#: apps/order_item/templates/order_item/list_order_item.html:82
+#: apps/product/templates/product/list_product.html:32
+msgid "Selling Price"
+msgstr "Satış Fiyatı"
+
+#: apps/product/templates/product/list_product.html:18
+#: apps/product/templates/product_type/list_product_type.html:19
+#: core/templates/includes/sidenav.html:94
 #: core/templates/includes/sidenav.html:100
 msgid "Products"
 msgstr "Ürünler"
 
-#: apps/product/templates/product/list_product.html:26
-msgid "ID"
-msgstr "ID"
-
-#: apps/product/templates/product/list_product.html:27
-#: apps/product/templates/product/list_product.html:97
-#: core/templates/includes/sidenav.html:200
-#: venv_docker_resan/lib/python3.9/site-packages/django/forms/widgets.py:400
-msgid "Change"
-msgstr "Değiştir"
-
-#: apps/product/templates/product/list_product.html:27
-#: apps/product/templates/product/list_product.html:98
-msgid "Remove"
-msgstr "Sil"
-
 #: apps/product/templates/product/list_product.html:28
-msgid "Name"
-msgstr "Ad"
-
-#: apps/product/templates/product/list_product.html:29
 msgid "Description"
 msgstr "Açıklama"
 
-#: apps/product/templates/product/list_product.html:30
+#: apps/product/templates/product/list_product.html:29
 msgid "Package Unit"
 msgstr "Ambalaj Birimi"
 
-#: apps/product/templates/product/list_product.html:31
+#: apps/product/templates/product/list_product.html:30
 msgid "Type"
 msgstr "Cinsi"
 
-#: apps/product/templates/product/list_product.html:32
+#: apps/product/templates/product/list_product.html:31
 msgid "Buying Price"
 msgstr "Alış Fiyatı"
 
 #: apps/product/templates/product/list_product.html:33
-msgid "Selling Price"
-msgstr "Satış Fiyatı"
-
-#: apps/product/templates/product/list_product.html:34
 msgid "VAT"
 msgstr "KDV"
+
+#: apps/product/templates/product/list_product.html:67
+#, fuzzy
+#| msgid "Products"
+msgid "New Product"
+msgstr "Ürünler"
+
+#: apps/product/templates/product_type/list_product_type.html:28
+#, fuzzy
+#| msgid "Updated At"
+msgid "Upedate"
+msgstr "Güncelleme Zamanı"
 
 #: core/models.py:24
 msgid "Created At"
@@ -153,30 +373,32 @@ msgstr ""
 msgid "Deleted By"
 msgstr "Silen"
 
-#: core/settings.py:136
+#: core/settings.py:137
 msgid "English"
 msgstr "İngilizce"
 
-#: core/settings.py:137
+#: core/settings.py:138
 msgid "Türkçe"
 msgstr "Türkçe"
 
+#: core/templates/includes/sidenav.html:82
+#, fuzzy
+#| msgid "Tax Office"
+msgid "Tax Offices"
+msgstr "Vergi Dairesi"
+
 #: core/templates/includes/sidenav.html:104
 msgid "Product Types"
-msgstr ""
-
-#: core/templates/includes/sidenav.html:116
-#: core/templates/includes/sidenav.html:122
-msgid "Orders"
-msgstr "Siparişler"
-
-#: core/templates/includes/sidenav.html:130
-msgid "Order Items"
-msgstr "Sipariş Kalemleri"
+msgstr "Ürün Tipleri"
 
 #: core/templates/includes/sidenav.html:139
 msgid "Logout"
 msgstr "Çıkış Yap"
+
+#: core/templates/includes/sidenav.html:200
+#: venv_docker_resan/lib/python3.9/site-packages/django/forms/widgets.py:400
+msgid "Change"
+msgstr "Değiştir"
 
 #: venv_docker_resan/lib/python3.9/site-packages/crispy_forms/tests/test_form_helper.py:129
 #: venv_docker_resan/lib/python3.9/site-packages/crispy_forms/tests/test_form_helper.py:139
@@ -733,15 +955,6 @@ msgid "Please submit %d or more forms."
 msgid_plural "Please submit %d or more forms."
 msgstr[0] ""
 msgstr[1] ""
-
-#: venv_docker_resan/lib/python3.9/site-packages/django/forms/formsets.py:379
-#: venv_docker_resan/lib/python3.9/site-packages/django/forms/formsets.py:386
-msgid "Order"
-msgstr ""
-
-#: venv_docker_resan/lib/python3.9/site-packages/django/forms/formsets.py:391
-msgid "Delete"
-msgstr ""
 
 #: venv_docker_resan/lib/python3.9/site-packages/django/forms/models.py:755
 #, python-format

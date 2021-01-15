@@ -4,7 +4,7 @@
     {% csrf_token %}
 
     <div class="modal-header">
-        <h3 class="modal-title">Ürün Tipini Güncelle</h3>
+        <h3 class="modal-title">{% trans "Update Product Type" %}</h3>
         <button type="button" class="close" data-dismiss="modal"
                 aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -32,7 +32,9 @@
     </div>
 
     <div class="modal-footer">
-        <button type="button" class="submit-btn btn btn-primary">Update</button>
+        <button type="button" class="submit-btn btn btn-primary">
+            {% trans "Update" %}
+        </button>
     </div>
 
 </form>

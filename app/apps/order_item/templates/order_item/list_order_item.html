@@ -21,7 +21,7 @@
                                 <h2 class="mb-0">Sipariş Kalemleri
                                     - {{ order_id }} - {{ company_name }}</h2>
                             {% else %}
-                                <h2 class="mb-0">Sipariş Kalemleri</h2>
+                                <h2 class="mb-0">{% trans "Order Items" %}</h2>
                             {% endif %}
                         </div>
                         {% if order_json %}
@@ -115,12 +115,12 @@
                 buttons: [
                     {
                         className: 'create-order-item btn-success',
-                        text: 'Yeni Sipariş Kalemi',
+                        text: '{% trans "Create Order Item" %}',
                     },
-                    {
-                        className: "update-order btn-warning",
-                        text: "Siparişi Düzenle",
-                    },
+                    {#{#}
+                    {#    className: "update-order btn-warning",#}
+                    {#    text: "Siparişi Düzenle",#}
+                    {#},#}
                     "copy", "csv",
                 ],
                 ajax: {
@@ -151,8 +151,8 @@
                         data: null,
                         orderable: false,
                         render: function (data, type, row) {
-                            return '<button type="button" id="update-order-item-inside" class="bs-modal btn btn-sm btn-primary" data-toggle="modal" data-form-url="{% url "update-order-item" "0" %}"><span>Değiştir</span></button>'.replace('0', row['id']) +
-                                '<button type="button" id="delete-order-item-inside" class="bs-modal btn btn-sm btn-danger" data-toggle="modal" data-form-url="{% url "delete-order-item" "0" %}"><span>Sil</span></button>'.replace('0', row['id']);
+                            return '<button type="button" id="update-order-item-inside" class="bs-modal btn btn-sm btn-primary" data-toggle="modal" data-form-url="{% url "update-order-item" "0" %}"><span>{% trans "Update" %}</span></button>'.replace('0', row['id']) +
+                                '<button type="button" id="delete-order-item-inside" class="bs-modal btn btn-sm btn-danger" data-toggle="modal" data-form-url="{% url "delete-order-item" "0" %}"><span>{% trans "Remove" %}</span></button>'.replace('0', row['id']);
                         }
                     },
                     {data: "order"},

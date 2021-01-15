@@ -25,8 +25,7 @@
                                 <tr>
                                     <th>{% trans "ID" %}</th>
                                     <th>{% trans "Name" %}</th>
-                                    <th>{% trans "Upedate" %}
-                                        / {% trans "Remove" %} </th>
+                                    <th>{% trans "Update" %} / {% trans "Remove" %} </th>
                                 </tr>
                                 </thead>
                             </table>
@@ -60,7 +59,7 @@
                 buttons: [
                     {
                         className: 'create-product-type btn-success',
-                        text: 'Yeni Ürün Tipi',
+                        text: '{% trans "Create Product Type" %}',
                     },
                     "copy", "csv",
                 ],
@@ -90,8 +89,8 @@
                         data: null,
                         orderable: false,
                         render: function (data, type, row) {
-                            return '<button type="button" id="update-product-type-inside" class="bs-modal btn btn-sm btn-primary" data-toggle="modal" data-form-url="{% url "update-product-type" "0" %}"><span>Değiştir</span></button>'.replace('0', row['id']) +
-                                '<button type="button" id="delete-product-type-inside" class="bs-modal btn btn-sm btn-danger" data-toggle="modal" data-form-url="{% url "delete-product-type" "0" %}"><span>Sil</span></button>'.replace('0', row['id']);
+                            return '<button type="button" id="update-product-type-inside" class="bs-modal btn btn-sm btn-primary" data-toggle="modal" data-form-url="{% url "update-product-type" "0" %}"><span>{% trans "Update" %}</span></button>'.replace('0', row['id']) +
+                                '<button type="button" id="delete-product-type-inside" class="bs-modal btn btn-sm btn-danger" data-toggle="modal" data-form-url="{% url "delete-product-type" "0" %}"><span>{% trans "Remove" %}</span></button>'.replace('0', row['id']);
                         }
                     }
                 ]
